@@ -22,6 +22,10 @@ $ yarn generate
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
+## Docs
+
+- [Architectural Decision Records](./doc/adr)
+
 ## Licensed
 
 Copyright (c) 2021 Aleix Morgadas Licensed under the [AGPL-3.0 License](./LICENSE)
