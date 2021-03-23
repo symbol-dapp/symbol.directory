@@ -3,6 +3,10 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1ff7287c-db37-41bb-a6c2-d4eae044b126/deploy-status)](https://app.netlify.com/sites/symboldirectory/deploys)
 [![ci](https://github.com/aleixmorgadas/symbol.directory/actions/workflows/ci.yml/badge.svg)](https://github.com/aleixmorgadas/symbol.directory/actions/workflows/ci.yml)
 
+## Why
+
+Symbol.Directory
+
 ## Build Setup
 
 ```bash

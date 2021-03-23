@@ -10,13 +10,14 @@
           class="flex md:absolute md:left-0 md:inset-y-0 lg:static xl:col-span-2"
         >
           <div class="flex-shrink-0 flex items-center">
-            <a href="#">
+            <NuxtLink to="/">
               <img
                 class="block h-8 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
-                alt="Workflow"
+                src="images/symbol.directory.logo.png"
+                alt="symbol.directory logo"
               />
-            </a>
+              <span></span>
+            </NuxtLink>
           </div>
         </div>
         <div class="min-w-0 flex-1 md:px-8 lg:px-0 xl:col-span-7">
