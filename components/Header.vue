@@ -15,8 +15,8 @@
                 class="block h-8 w-auto"
                 src="images/symbol.directory.logo.small.png"
                 alt="symbol.directory logo"
-              />
-              <span></span>
+              >
+              <span />
             </NuxtLink>
           </div>
         </div>
@@ -51,7 +51,7 @@
                   class="block w-full bg-white border border-gray-300 rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-500 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   placeholder="Search"
                   type="search"
-                />
+                >
               </div>
             </div>
           </div>
@@ -60,7 +60,7 @@
           class="flex items-center md:absolute md:right-0 md:inset-y-0 lg:hidden"
         >
           <!-- Mobile menu button -->
-          <NuxtLink to="/publish">
+          <NuxtLink to="/Submit">
             <button
               type="button"
               class="-mx-2 rounded-md p-2 inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-100 text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
@@ -74,10 +74,10 @@
           class="hidden lg:flex lg:items-center lg:justify-end xl:col-span-3"
         >
           <NuxtLink
-            to="/publish"
+            to="/Submit"
             class="ml-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
-            Publish
+            Submit
           </NuxtLink>
         </div>
       </div>

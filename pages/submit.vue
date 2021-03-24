@@ -1,10 +1,15 @@
 <template>
   <div>
     <div>
+      <div class="text-center">
+        <h1 class="text-5xl mb-10">Submit your project</h1>
+      </div>
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
           <div class="px-4 sm:px-0">
-            <h3 class="text-lg font-medium leading-6 text-gray-900">Profile</h3>
+            <h3 class="text-lg font-medium leading-6 text-gray-900">
+              Profile
+            </h3>
             <p class="mt-1 text-sm text-gray-600">
               This information will be displayed publicly so be careful what you
               share.
@@ -30,9 +35,9 @@
                         http://
                       </span>
                       <input
+                        id="company_website"
                         type="text"
                         name="company_website"
-                        id="company_website"
                         class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
                         placeholder="www.example.com"
                       />
@@ -54,7 +59,7 @@
                       rows="3"
                       class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                       placeholder="you@example.com"
-                    ></textarea>
+                    />
                   </div>
                   <p class="mt-2 text-sm text-gray-500">
                     Brief description for your profile. URLs are hyperlinked.
@@ -123,7 +128,9 @@
                             class="sr-only"
                           />
                         </label>
-                        <p class="pl-1">or drag and drop</p>
+                        <p class="pl-1">
+                          or drag and drop
+                        </p>
                       </div>
                       <p class="text-xs text-gray-500">
                         PNG, JPG, GIF up to 10MB
@@ -148,7 +155,7 @@
 
     <div class="hidden sm:block" aria-hidden="true">
       <div class="py-5">
-        <div class="border-t border-gray-200"></div>
+        <div class="border-t border-gray-200" />
       </div>
     </div>
 
@@ -176,9 +183,9 @@
                       >First name</label
                     >
                     <input
+                      id="first_name"
                       type="text"
                       name="first_name"
-                      id="first_name"
                       autocomplete="given-name"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
@@ -191,9 +198,9 @@
                       >Last name</label
                     >
                     <input
+                      id="last_name"
                       type="text"
                       name="last_name"
-                      id="last_name"
                       autocomplete="family-name"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
@@ -206,9 +213,9 @@
                       >Email address</label
                     >
                     <input
+                      id="email_address"
                       type="text"
                       name="email_address"
-                      id="email_address"
                       autocomplete="email"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
@@ -239,9 +246,9 @@
                       >Street address</label
                     >
                     <input
+                      id="street_address"
                       type="text"
                       name="street_address"
-                      id="street_address"
                       autocomplete="street-address"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
@@ -254,9 +261,9 @@
                       >City</label
                     >
                     <input
+                      id="city"
                       type="text"
                       name="city"
-                      id="city"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
@@ -268,9 +275,9 @@
                       >State / Province</label
                     >
                     <input
+                      id="state"
                       type="text"
                       name="state"
-                      id="state"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
@@ -282,9 +289,9 @@
                       >ZIP / Postal</label
                     >
                     <input
+                      id="postal_code"
                       type="text"
                       name="postal_code"
-                      id="postal_code"
                       autocomplete="postal-code"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
@@ -307,158 +314,10 @@
 
     <div class="hidden sm:block" aria-hidden="true">
       <div class="py-5">
-        <div class="border-t border-gray-200"></div>
+        <div class="border-t border-gray-200" />
       </div>
     </div>
 
-    <div class="mt-10 sm:mt-0">
-      <div class="md:grid md:grid-cols-3 md:gap-6">
-        <div class="md:col-span-1">
-          <div class="px-4 sm:px-0">
-            <h3 class="text-lg font-medium leading-6 text-gray-900">
-              Notifications
-            </h3>
-            <p class="mt-1 text-sm text-gray-600">
-              Decide which communications you'd like to receive and how.
-            </p>
-          </div>
-        </div>
-        <div class="mt-5 md:mt-0 md:col-span-2">
-          <form action="#" method="POST">
-            <div class="shadow overflow-hidden sm:rounded-md">
-              <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                <fieldset>
-                  <legend class="text-base font-medium text-gray-900">
-                    By Email
-                  </legend>
-                  <div class="mt-4 space-y-4">
-                    <div class="flex items-start">
-                      <div class="flex items-center h-5">
-                        <input
-                          id="comments"
-                          name="comments"
-                          type="checkbox"
-                          class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
-                        />
-                      </div>
-                      <div class="ml-3 text-sm">
-                        <label for="comments" class="font-medium text-gray-700"
-                          >Comments</label
-                        >
-                        <p class="text-gray-500">
-                          Get notified when someones posts a comment on a
-                          posting.
-                        </p>
-                      </div>
-                    </div>
-                    <div class="flex items-start">
-                      <div class="flex items-center h-5">
-                        <input
-                          id="candidates"
-                          name="candidates"
-                          type="checkbox"
-                          class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
-                        />
-                      </div>
-                      <div class="ml-3 text-sm">
-                        <label
-                          for="candidates"
-                          class="font-medium text-gray-700"
-                          >Candidates</label
-                        >
-                        <p class="text-gray-500">
-                          Get notified when a candidate applies for a job.
-                        </p>
-                      </div>
-                    </div>
-                    <div class="flex items-start">
-                      <div class="flex items-center h-5">
-                        <input
-                          id="offers"
-                          name="offers"
-                          type="checkbox"
-                          class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
-                        />
-                      </div>
-                      <div class="ml-3 text-sm">
-                        <label for="offers" class="font-medium text-gray-700"
-                          >Offers</label
-                        >
-                        <p class="text-gray-500">
-                          Get notified when a candidate accepts or rejects an
-                          offer.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </fieldset>
-                <fieldset>
-                  <div>
-                    <legend class="text-base font-medium text-gray-900">
-                      Push Notifications
-                    </legend>
-                    <p class="text-sm text-gray-500">
-                      These are delivered via SMS to your mobile phone.
-                    </p>
-                  </div>
-                  <div class="mt-4 space-y-4">
-                    <div class="flex items-center">
-                      <input
-                        id="push_everything"
-                        name="push_notifications"
-                        type="radio"
-                        class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
-                      />
-                      <label
-                        for="push_everything"
-                        class="ml-3 block text-sm font-medium text-gray-700"
-                      >
-                        Everything
-                      </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input
-                        id="push_email"
-                        name="push_notifications"
-                        type="radio"
-                        class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
-                      />
-                      <label
-                        for="push_email"
-                        class="ml-3 block text-sm font-medium text-gray-700"
-                      >
-                        Same as email
-                      </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input
-                        id="push_nothing"
-                        name="push_notifications"
-                        type="radio"
-                        class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
-                      />
-                      <label
-                        for="push_nothing"
-                        class="ml-3 block text-sm font-medium text-gray-700"
-                      >
-                        No push notifications
-                      </label>
-                    </div>
-                  </div>
-                </fieldset>
-              </div>
-              <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                <button
-                  type="submit"
-                  class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  Save
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+    <SubmitSocialMedia />
   </div>
 </template>
