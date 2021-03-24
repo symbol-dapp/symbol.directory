@@ -1,3 +1,5 @@
+![symbol.directory logo](/static/images/symbol.directory.logo.png)
+
 # symbol.directory
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1ff7287c-db37-41bb-a6c2-d4eae044b126/deploy-status)](https://app.netlify.com/sites/symboldirectory/deploys)
