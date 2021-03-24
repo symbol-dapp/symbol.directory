@@ -13,7 +13,7 @@
             <NuxtLink to="/">
               <img
                 class="block h-8 w-auto"
-                src="images/symbol.directory.logo.png"
+                src="images/symbol.directory.logo.small.png"
                 alt="symbol.directory logo"
               />
               <span></span>
