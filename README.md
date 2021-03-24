@@ -5,7 +5,11 @@
 
 ## Why
 
-Symbol.Directory
+Symbol.Directory purpose is to be the place to find anything regarding Symbol Blockchain. 
+
+## Architecture
+
+![Architecture](./doc/images/architecture.svg)
 
 ## Build Setup
 
