@@ -1,4 +1,4 @@
-![symbol.directory logo](/static/images/symbol.directory.logo.png)
+![symbol.directory logo](/static/images/symbol.directory.logo.png =75x)
 
 # symbol.directory
 
