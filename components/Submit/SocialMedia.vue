@@ -123,6 +123,7 @@
 import Vue from "vue";
 
 export default Vue.extend({
+  name: 'SubmitSocialMedia',
   data() {
     return {
       github: "",

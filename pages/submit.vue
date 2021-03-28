@@ -7,7 +7,7 @@
             Submit your project
           </h1>
         </div>
-        <SubmitBasicInfo />
+        <SubmitBasicInfo @basicInfo="basicInfoChange" />
       </div>
 
       <div class="hidden sm:block" aria-hidden="true">
@@ -16,7 +16,7 @@
         </div>
       </div>
 
-      <SubmitTokenInfo />
+      <!-- <SubmitTokenInfo /> -->
 
       <div class="hidden sm:block" aria-hidden="true">
         <div class="py-5">
@@ -37,3 +37,18 @@
     </form>
   </div>
 </template>
+<script lang="ts">
+import Vue from "vue";
+export default Vue.extend({
+  data: function() {
+    return {
+      basicInfo: {}
+    };
+  },
+  methods: {
+    basicInfoChange: function(data: any) {
+      this.$data.basicInfo = data;
+    }
+  }
+});
+</script>
