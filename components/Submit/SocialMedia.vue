@@ -18,7 +18,7 @@
                   <div
                     class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
                   >
-                    <img src="/images/twitter.svg" width="20" height="20" />
+                    <img src="/images/twitter.svg" width="20" height="20">
                   </div>
                   <input
                     id="twitter"
@@ -29,7 +29,7 @@
                     class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
                     placeholder="Add your product's Twitter URL"
                     @input="change"
-                  />
+                  >
                 </div>
               </div>
               <div class="col-span-6 sm:col-span-3">
@@ -38,7 +38,7 @@
                     class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
                   >
                     <!-- Heroicon name: solid/mail -->
-                    <img src="/images/reddit.svg" width="20" height="20" />
+                    <img src="/images/reddit.svg" width="20" height="20">
                   </div>
                   <input
                     id="reddit"
@@ -49,7 +49,7 @@
                     class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
                     placeholder="Add your product's Reddit URL"
                     @input="change"
-                  />
+                  >
                 </div>
               </div>
               <div class="col-span-6 sm:col-span-3">
@@ -58,7 +58,7 @@
                     class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
                   >
                     <!-- Heroicon name: solid/mail -->
-                    <img src="/images/facebook.svg" width="20" height="20" />
+                    <img src="/images/facebook.svg" width="20" height="20">
                   </div>
                   <input
                     id="facebook"
@@ -69,7 +69,7 @@
                     class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
                     placeholder="Add your product's Facebook URL"
                     @input="change"
-                  />
+                  >
                 </div>
               </div>
               <div class="col-span-6 sm:col-span-3">
@@ -78,7 +78,7 @@
                     class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
                   >
                     <!-- Heroicon name: solid/mail -->
-                    <img src="/images/telegram.svg" width="20" height="20" />
+                    <img src="/images/telegram.svg" width="20" height="20">
                   </div>
                   <input
                     id="telegram"
@@ -89,7 +89,7 @@
                     class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
                     placeholder="Add your product's Telegram URL"
                     @input="change"
-                  />
+                  >
                 </div>
               </div>
               <div class="col-span-6 sm:col-span-3">
@@ -98,7 +98,7 @@
                     class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
                   >
                     <!-- Heroicon name: solid/mail -->
-                    <img src="/images/github.svg" width="20" height="20" />
+                    <img src="/images/github.svg" width="20" height="20">
                   </div>
                   <input
                     id="github"
@@ -109,7 +109,7 @@
                     class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
                     placeholder="Add your product's GitHub URL"
                     @input="change"
-                  />
+                  >
                 </div>
               </div>
             </div>
@@ -120,23 +120,23 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue'
 
 export default Vue.extend({
   name: 'SubmitSocialMedia',
-  data() {
+  data () {
     return {
-      github: "",
-      twitter: "",
-      telegram: "",
-      reddit: "",
-      facebook: ""
-    };
+      github: '',
+      twitter: '',
+      telegram: '',
+      reddit: '',
+      facebook: ''
+    }
   },
   methods: {
-    change() {
-      this.$emit("socialMedia", this.$data);
+    change () {
+      this.$emit('socialMedia', this.$data)
     }
   }
-});
+})
 </script>

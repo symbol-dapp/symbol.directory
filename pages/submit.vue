@@ -24,7 +24,7 @@
         </div>
       </div>
 
-      <SubmitSocialMedia />
+      <SubmitSocialMedia @socialMedia="socialMediaChange" />
 
       <div class="text-right mt-5">
         <button
@@ -40,14 +40,18 @@
 <script lang="ts">
 import Vue from "vue";
 export default Vue.extend({
-  data: function() {
+  data() {
     return {
-      basicInfo: {}
+      basicInfo: {},
+      socialMedia: {}
     };
   },
   methods: {
-    basicInfoChange: function(data: any) {
+    basicInfoChange(data: any) {
       this.$data.basicInfo = data;
+    },
+    socialMediaChange(data: any) {
+      this.$data.socialMedia = data;
     }
   }
 });

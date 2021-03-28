@@ -20,16 +20,16 @@
                 >Project Name</label
               >
               <input
-                required
-                @input="change"
-                v-model="name"
-                data-testId="name"
                 id="name"
+                v-model="name"
+                required
+                data-testId="name"
                 type="text"
                 name="name"
                 autocomplete="project-name"
                 placeholder="Project Name"
                 class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-gray-400"
+                @input="change"
               />
             </div>
             <div class="col-span-6 sm:col-span-3">
@@ -37,16 +37,16 @@
                 >Website</label
               >
               <input
-                required
-                @input="change"
-                v-model="website"
-                data-testId="website"
                 id="website"
+                v-model="website"
+                required
+                data-testId="website"
                 type="text"
                 name="website"
                 autocomplete="project-website"
                 placeholder="A URL to visit your product's website"
                 class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-gray-400"
+                @input="change"
               />
             </div>
             <div class="col-span-6 sm:col-span-6">
@@ -54,16 +54,16 @@
                 >Short Description</label
               >
               <input
-                required
-                @input="change"
-                v-model="shortDescription"
-                data-testId="shortDescription"
                 id="shortDescription"
+                v-model="shortDescription"
+                required
+                data-testId="shortDescription"
                 type="text"
                 name="shortDescription"
                 autocomplete="project-description"
                 placeholder="This is to provide an idea of what does your product do."
                 class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-gray-400"
+                @input="change"
               />
             </div>
             <div class="col-span-6 sm:col-span-3">
@@ -71,17 +71,21 @@
                 >Type</label
               >
               <select
-                required
-                @input="change"
-                v-model="type"
-                data-testId="type"
                 id="type"
+                v-model="type"
+                required
+                data-testId="type"
                 name="type"
-                v-bind:class="{ 'text-gray-400': type == 'select-type' }"
+                :class="{ 'text-gray-400': type == 'select-type' }"
                 class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                @input="change"
               >
-                <option disabled value="select-type">Select Type</option>
-                <option value="DAPP">DAPP</option>
+                <option disabled value="select-type">
+                  Select Type
+                </option>
+                <option value="DAPP">
+                  DAPP
+                </option>
               </select>
             </div>
             <div class="col-span-6 sm:col-span-3">
@@ -91,29 +95,57 @@
                 >Category</label
               >
               <select
-                required
-                @input="change"
-                v-model="category"
-                data-testId="category"
                 id="category"
+                v-model="category"
+                required
+                data-testId="category"
                 name="category"
-                v-bind:class="{ 'text-gray-400': category == 'select-type' }"
+                :class="{ 'text-gray-400': category == 'select-type' }"
                 class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                @input="change"
               >
-                <option disabled value="select-type">Select Type</option>
-                <option value="media">Media</option>
-                <option value="wallet">Wallet</option>
-                <option value="price-tracker">Price Tracker</option>
-                <option value="job-search">Job Search</option>
-                <option value="game">Game</option>
-                <option value="gambling">Gambling</option>
-                <option value="finance">Finance</option>
-                <option value="exchange">Exchange</option>
-                <option value="social">Social</option>
-                <option value="marketplace">Marketplace</option>
-                <option value="utilities">Utilities</option>
-                <option value="others">Others</option>
-                <option value="high-risk">High Risk</option>
+                <option disabled value="select-type">
+                  Select Type
+                </option>
+                <option value="media">
+                  Media
+                </option>
+                <option value="wallet">
+                  Wallet
+                </option>
+                <option value="price-tracker">
+                  Price Tracker
+                </option>
+                <option value="job-search">
+                  Job Search
+                </option>
+                <option value="game">
+                  Game
+                </option>
+                <option value="gambling">
+                  Gambling
+                </option>
+                <option value="finance">
+                  Finance
+                </option>
+                <option value="exchange">
+                  Exchange
+                </option>
+                <option value="social">
+                  Social
+                </option>
+                <option value="marketplace">
+                  Marketplace
+                </option>
+                <option value="utilities">
+                  Utilities
+                </option>
+                <option value="others">
+                  Others
+                </option>
+                <option value="high-risk">
+                  High Risk
+                </option>
               </select>
             </div>
           </div>
@@ -124,14 +156,14 @@
             </label>
             <div class="mt-1">
               <textarea
-                @input="change"
+                id="longDescription"
                 v-model="longDescription"
                 data-testId="longDescription"
-                id="longDescription"
                 name="longDescription"
                 rows="3"
                 class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md placeholder-gray-400"
                 placeholder="A detailed summary will better explain your products to the audiences. Our users will see this in your dedicated product page. "
+                @input="change"
               />
             </div>
           </div>
@@ -144,7 +176,7 @@
 import Vue from "vue";
 export default Vue.extend({
   name: "SubmitBasicInfo",
-  data: function() {
+  data() {
     return {
       name: "",
       website: "",

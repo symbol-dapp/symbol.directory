@@ -6,8 +6,7 @@
           <h3 class="text-lg font-medium leading-6 text-gray-900">
             Token Information
           </h3>
-          <p class="mt-1 text-sm text-gray-600">
-          </p>
+          <p class="mt-1 text-sm text-gray-600" />
         </div>
       </div>
       <div class="mt-5 md:mt-0 md:col-span-2">
@@ -18,53 +17,49 @@
                 <label
                   for="first_name"
                   class="block text-sm font-medium text-gray-700"
-                  >First name</label
-                >
+                >First name</label>
                 <input
                   id="first_name"
                   type="text"
                   name="first_name"
                   autocomplete="given-name"
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                />
+                >
               </div>
 
               <div class="col-span-6 sm:col-span-3">
                 <label
                   for="last_name"
                   class="block text-sm font-medium text-gray-700"
-                  >Last name</label
-                >
+                >Last name</label>
                 <input
                   id="last_name"
                   type="text"
                   name="last_name"
                   autocomplete="family-name"
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                />
+                >
               </div>
 
               <div class="col-span-6 sm:col-span-4">
                 <label
                   for="email_address"
                   class="block text-sm font-medium text-gray-700"
-                  >Email address</label
-                >
+                >Email address</label>
                 <input
                   id="email_address"
                   type="text"
                   name="email_address"
                   autocomplete="email"
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                />
+                >
               </div>
 
               <div class="col-span-6 sm:col-span-3">
                 <label
                   for="country"
                   class="block text-sm font-medium text-gray-700"
-                  >Country / Region</label
-                >
+                >Country / Region</label>
                 <select
                   id="country"
                   name="country"
@@ -81,58 +76,54 @@
                 <label
                   for="street_address"
                   class="block text-sm font-medium text-gray-700"
-                  >Street address</label
-                >
+                >Street address</label>
                 <input
                   id="street_address"
                   type="text"
                   name="street_address"
                   autocomplete="street-address"
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                />
+                >
               </div>
 
               <div class="col-span-6 sm:col-span-6 lg:col-span-2">
                 <label
                   for="city"
                   class="block text-sm font-medium text-gray-700"
-                  >City</label
-                >
+                >City</label>
                 <input
                   id="city"
                   type="text"
                   name="city"
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                />
+                >
               </div>
 
               <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                 <label
                   for="state"
                   class="block text-sm font-medium text-gray-700"
-                  >State / Province</label
-                >
+                >State / Province</label>
                 <input
                   id="state"
                   type="text"
                   name="state"
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                />
+                >
               </div>
 
               <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                 <label
                   for="postal_code"
                   class="block text-sm font-medium text-gray-700"
-                  >ZIP / Postal</label
-                >
+                >ZIP / Postal</label>
                 <input
                   id="postal_code"
                   type="text"
                   name="postal_code"
                   autocomplete="postal-code"
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                />
+                >
               </div>
             </div>
           </div>
