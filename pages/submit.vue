@@ -2,7 +2,9 @@
   <div>
     <div>
       <div class="text-center">
-        <h1 class="text-5xl mb-10">Submit your project</h1>
+        <h1 class="text-5xl mb-10">
+          Submit your project
+        </h1>
       </div>
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
@@ -40,7 +42,7 @@
                         name="company_website"
                         class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
                         placeholder="www.example.com"
-                      />
+                      >
                     </div>
                   </div>
                 </div>
@@ -126,7 +128,7 @@
                             name="file-upload"
                             type="file"
                             class="sr-only"
-                          />
+                          >
                         </label>
                         <p class="pl-1">
                           or drag and drop
@@ -180,53 +182,49 @@
                     <label
                       for="first_name"
                       class="block text-sm font-medium text-gray-700"
-                      >First name</label
-                    >
+                    >First name</label>
                     <input
                       id="first_name"
                       type="text"
                       name="first_name"
                       autocomplete="given-name"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
+                    >
                   </div>
 
                   <div class="col-span-6 sm:col-span-3">
                     <label
                       for="last_name"
                       class="block text-sm font-medium text-gray-700"
-                      >Last name</label
-                    >
+                    >Last name</label>
                     <input
                       id="last_name"
                       type="text"
                       name="last_name"
                       autocomplete="family-name"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
+                    >
                   </div>
 
                   <div class="col-span-6 sm:col-span-4">
                     <label
                       for="email_address"
                       class="block text-sm font-medium text-gray-700"
-                      >Email address</label
-                    >
+                    >Email address</label>
                     <input
                       id="email_address"
                       type="text"
                       name="email_address"
                       autocomplete="email"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
+                    >
                   </div>
 
                   <div class="col-span-6 sm:col-span-3">
                     <label
                       for="country"
                       class="block text-sm font-medium text-gray-700"
-                      >Country / Region</label
-                    >
+                    >Country / Region</label>
                     <select
                       id="country"
                       name="country"
@@ -243,58 +241,54 @@
                     <label
                       for="street_address"
                       class="block text-sm font-medium text-gray-700"
-                      >Street address</label
-                    >
+                    >Street address</label>
                     <input
                       id="street_address"
                       type="text"
                       name="street_address"
                       autocomplete="street-address"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
+                    >
                   </div>
 
                   <div class="col-span-6 sm:col-span-6 lg:col-span-2">
                     <label
                       for="city"
                       class="block text-sm font-medium text-gray-700"
-                      >City</label
-                    >
+                    >City</label>
                     <input
                       id="city"
                       type="text"
                       name="city"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
+                    >
                   </div>
 
                   <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                     <label
                       for="state"
                       class="block text-sm font-medium text-gray-700"
-                      >State / Province</label
-                    >
+                    >State / Province</label>
                     <input
                       id="state"
                       type="text"
                       name="state"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
+                    >
                   </div>
 
                   <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                     <label
                       for="postal_code"
                       class="block text-sm font-medium text-gray-700"
-                      >ZIP / Postal</label
-                    >
+                    >ZIP / Postal</label>
                     <input
                       id="postal_code"
                       type="text"
                       name="postal_code"
                       autocomplete="postal-code"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
+                    >
                   </div>
                 </div>
               </div>

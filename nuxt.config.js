@@ -41,7 +41,8 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics',
+    'nuxt-i18n'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -54,5 +55,7 @@ export default {
 
   googleAnalytics: {
     id: 'UA-83164077-10'
-  }
+  },
+
+  i18n: {}
 }
