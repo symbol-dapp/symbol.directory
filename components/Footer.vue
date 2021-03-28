@@ -45,7 +45,7 @@
       </a>
       --></div>
       <p class="mt-8 text-center text-base text-gray-400">
-        &copy; 2021 Aleix Morgadas. All rights reserved.
+        &copy; 2021 Symbol.Directory. All rights reserved.
       </p>
     </div>
   </footer>
