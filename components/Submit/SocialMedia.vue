@@ -15,7 +15,7 @@
             <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
               <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-3">
-                  <div class="mt-1 relative rounded-md shadow-sm">
+                  <div class="relative rounded-md shadow-sm">
                     <div
                       class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
                     >
@@ -31,7 +31,7 @@
                   </div>
                 </div>
                 <div class="col-span-6 sm:col-span-3">
-                  <div class="mt-1 relative rounded-md shadow-sm">
+                  <div class="relative rounded-md shadow-sm">
                     <div
                       class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
                     >
@@ -48,7 +48,7 @@
                   </div>
                 </div>
                 <div class="col-span-6 sm:col-span-3">
-                  <div class="mt-1 relative rounded-md shadow-sm">
+                  <div class="relative rounded-md shadow-sm">
                     <div
                       class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
                     >
@@ -61,6 +61,40 @@
                       id="facebook"
                       class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
                       placeholder="Add your product's Facebook URL"
+                    />
+                  </div>
+                </div>
+                <div class="col-span-6 sm:col-span-3">
+                  <div class="relative rounded-md shadow-sm">
+                    <div
+                      class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+                    >
+                      <!-- Heroicon name: solid/mail -->
+                      <img src="/images/telegram.svg" width="20" height="20" />
+                    </div>
+                    <input
+                      type="text"
+                      name="telegram"
+                      id="telegram"
+                      class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
+                      placeholder="Add your product's Telegram URL"
+                    />
+                  </div>
+                </div>
+                <div class="col-span-6 sm:col-span-3">
+                  <div class="relative rounded-md shadow-sm">
+                    <div
+                      class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+                    >
+                      <!-- Heroicon name: solid/mail -->
+                      <img src="/images/github.svg" width="20" height="20" />
+                    </div>
+                    <input
+                      type="text"
+                      name="github"
+                      id="github"
+                      class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
+                      placeholder="Add your product's GitHub URL"
                     />
                   </div>
                 </div>
