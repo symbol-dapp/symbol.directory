@@ -16,7 +16,7 @@
         </div>
       </div>
 
-      <!-- <SubmitTokenInfo /> -->
+      <SubmitMosaicInfo @mosaicInfo="mosaicInfoChange" />
 
       <div class="hidden sm:block" aria-hidden="true">
         <div class="py-5">
@@ -43,7 +43,8 @@ export default Vue.extend({
   data() {
     return {
       basicInfo: {},
-      socialMedia: {}
+      socialMedia: {},
+      mosaicInfo: {}
     };
   },
   methods: {
@@ -52,6 +53,9 @@ export default Vue.extend({
     },
     socialMediaChange(data: any) {
       this.$data.socialMedia = data;
+    },
+    mosaicInfoChange(data: any) {
+      this.$data.mosaicInfo = data;
     }
   }
 });

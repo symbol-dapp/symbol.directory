@@ -1,7 +1,8 @@
-import { mount, shallowMount } from "@vue/test-utils";
+import { shallowMount } from "@vue/test-utils";
 
 import Submit from "@/pages/submit.vue";
 import BasicInfo from "@/components/Submit/BasicInfo.vue";
+import MosaicInfo from "@/components/Submit/MosaicInfo.vue";
 import SocialMedia from "@/components/Submit/SocialMedia.vue";
 
 describe("submit page", () => {
@@ -9,7 +10,8 @@ describe("submit page", () => {
     const wrapper = shallowMount(Submit, {
       stubs: {
         SubmitBasicInfo: BasicInfo,
-        SubmitSocialMedia: SocialMedia
+        SubmitMosaicInfo: MosaicInfo,
+        SubmitSocialMedia: SocialMedia,
       }
     });
     const basicInfo = {
@@ -28,11 +30,19 @@ describe("submit page", () => {
       facebook: "https://www.facebook.com/ourNEM/",
       twitter: "https://twitter.com/nemtech"
     };
+    const mosaicInfo = {
+      mosaic: true,
+      mosaicId: '2CF403E85507F39E'
+    }
+
+    console.log('MosaicInfo', wrapper.findComponent(MosaicInfo));
 
     wrapper.findComponent(BasicInfo).vm.$emit("basicInfo", basicInfo);
+    wrapper.findComponent(MosaicInfo).vm.$emit("mosaicInfo", mosaicInfo);
     wrapper.findComponent(SocialMedia).vm.$emit("socialMedia", socialMedia);
 
     expect(wrapper.vm.$data.basicInfo).toBe(basicInfo);
     expect(wrapper.vm.$data.socialMedia).toBe(socialMedia);
+    expect(wrapper.vm.$data.mosaicInfo).toBe(mosaicInfo);
   });
 });

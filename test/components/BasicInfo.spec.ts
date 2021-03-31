@@ -5,7 +5,7 @@ describe("BasicInfo", () => {
   test("emits on data change", async () => {
     const { getByText, getByTestId, emitted } = render(BasicInfo);
 
-    getByText("Basic Information");
+    getByText("Project Information");
 
     const nameInput = getByTestId("name");
     const websiteInput = getByTestId("website");
