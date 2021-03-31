@@ -35,8 +35,6 @@ describe("submit page", () => {
       mosaicId: '2CF403E85507F39E'
     }
 
-    console.log('MosaicInfo', wrapper.findComponent(MosaicInfo));
-
     wrapper.findComponent(BasicInfo).vm.$emit("basicInfo", basicInfo);
     wrapper.findComponent(MosaicInfo).vm.$emit("mosaicInfo", mosaicInfo);
     wrapper.findComponent(SocialMedia).vm.$emit("socialMedia", socialMedia);
