@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 
-import Submit from "@/pages/submit.vue";
+import Submit from "~/pages/submit/index.vue";
 import BasicInfo from "@/components/Submit/BasicInfo.vue";
 import MosaicInfo from "@/components/Submit/MosaicInfo.vue";
 import SocialMedia from "@/components/Submit/SocialMedia.vue";

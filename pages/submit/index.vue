@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form>
+    <form @submit.prevent="onSubmit">
       <div>
         <div class="text-center">
           <h1 class="text-5xl mb-10">
@@ -57,6 +57,10 @@ export default Vue.extend({
     },
     mosaicInfoChange(data: any) {
       this.$data.mosaicInfo = data;
+    },
+    onSubmit: function(event: any) {
+      this.$store.commit('submit/storeProject', this.$data);
+      this.$router.push('submit/review');
     }
   }
 });
