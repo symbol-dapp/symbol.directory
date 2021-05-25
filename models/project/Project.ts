@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { Address } from 'symbol-sdk';
+import { add, Address } from 'symbol-sdk';
 
 export interface SocialMedia {
   twitter: string | undefined;
@@ -24,7 +24,6 @@ export interface SocialMedia {
 }
 
 export interface ProjectState {
-  owner: Address;
   name: string;
   website: string;
   shortDescription: string;
@@ -35,9 +34,9 @@ export interface ProjectState {
 }
 
 export default class Project {
-  constructor (public readonly state: ProjectState) {}
+  constructor (public readonly state: ProjectState, public readonly owner: Address) {}
 
-  public static create (projectState: ProjectState): Project {
-    return new Project(projectState);
+  public static create (projectState: ProjectState, signer: Address): Project {
+    return new Project(projectState, signer);
   }
 }

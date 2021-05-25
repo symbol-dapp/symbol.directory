@@ -61,7 +61,7 @@ export default Vue.extend({
     onSubmit (event: any) {
       event.preventDefault();
       this.$store.commit('submit/storeProject', this.$data);
-      this.$router.push('submit/review');
+      this.$router.push('/submit/review');
     }
   }
 });

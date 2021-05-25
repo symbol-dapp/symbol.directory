@@ -189,6 +189,10 @@ export default Vue.extend({
     change () {
       this.$emit('basicInfo', this.$data);
     }
+  },
+  created() {
+    this.name = this.$store.state.submit.basicInfo.name;
+    this.website = this.$store.state.submit.basicInfo.website;
   }
 });
 </script>
