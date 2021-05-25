@@ -1,13 +1,14 @@
-import Index from "@/pages/index.vue";
-import { render } from "@testing-library/vue";
+import Index from '@/pages/index.vue';
+import { render } from '@testing-library/vue';
 
+describe('index page', () => {
+  test('mounts', () => {
+    const { getByText } = render(Index, {
+      stubs: {
+        Logo: true
+      }
+    });
 
-describe("index page", () => {
-  test("mounts", async () => {
-    const { getByText } = render(Index, { stubs: {
-        'Logo': true
-    }});
-
-    getByText("symbol.directory");
+    getByText('symbol.directory');
   });
 });

@@ -8,17 +8,17 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 export default Vue.extend({
   data () {
     return {
       enabled: false
-    }
+    };
   },
   mounted () {
     if (this.$route.query.enabled) {
-      this.$data.enabled = true
+      this.$data.enabled = true;
     }
   }
-})
+});
 </script>

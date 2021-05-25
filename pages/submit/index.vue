@@ -38,7 +38,7 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 
 export default Vue.extend({
   data () {
@@ -46,23 +46,23 @@ export default Vue.extend({
       basicInfo: {},
       socialMedia: {},
       mosaicInfo: {}
-    }
+    };
   },
   methods: {
     basicInfoChange (data: any) {
-      this.$data.basicInfo = data
+      this.$data.basicInfo = data;
     },
     socialMediaChange (data: any) {
-      this.$data.socialMedia = data
+      this.$data.socialMedia = data;
     },
     mosaicInfoChange (data: any) {
-      this.$data.mosaicInfo = data
+      this.$data.mosaicInfo = data;
     },
     onSubmit (event: any) {
-      event.preventDefault()
-      this.$store.commit('submit/storeProject', this.$data)
-      this.$router.push('submit/review')
+      event.preventDefault();
+      this.$store.commit('submit/storeProject', this.$data);
+      this.$router.push('submit/review');
     }
   }
-})
+});
 </script>

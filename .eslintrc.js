@@ -11,5 +11,8 @@ module.exports = {
   plugins: [
   ],
   // add your custom rules here
-  rules: {}
-}
+  rules: {
+    semi: [2, 'always'],
+    'no-useless-constructor': 'off'
+  }
+};

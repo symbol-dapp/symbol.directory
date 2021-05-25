@@ -172,7 +172,7 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 export default Vue.extend({
   name: 'SubmitBasicInfo',
   data () {
@@ -183,12 +183,12 @@ export default Vue.extend({
       category: 'select-type',
       shortDescription: '',
       longDescription: ''
-    }
+    };
   },
   methods: {
     change () {
-      this.$emit('basicInfo', this.$data)
+      this.$emit('basicInfo', this.$data);
     }
   }
-})
+});
 </script>

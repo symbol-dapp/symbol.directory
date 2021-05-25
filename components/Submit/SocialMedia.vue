@@ -120,7 +120,7 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 
 export default Vue.extend({
   name: 'SubmitSocialMedia',
@@ -131,12 +131,12 @@ export default Vue.extend({
       telegram: '',
       reddit: '',
       facebook: ''
-    }
+    };
   },
   methods: {
     change () {
-      this.$emit('socialMedia', this.$data)
+      this.$emit('socialMedia', this.$data);
     }
   }
-})
+});
 </script>

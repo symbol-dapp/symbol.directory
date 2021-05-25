@@ -67,19 +67,19 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 export default Vue.extend({
   name: 'SubmitMosaicInfo',
   data () {
     return {
       mosaic: false,
       mosaicId: ''
-    }
+    };
   },
   methods: {
     change () {
-      this.$emit('mosaicInfo', this.$data)
+      this.$emit('mosaicInfo', this.$data);
     }
   }
-})
+});
 </script>
