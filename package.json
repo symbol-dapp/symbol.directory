@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@nuxtjs/google-analytics": "^2.4.0",
-    "@symbol-dapp/core": "^0.0.7",
+    "@symbol-dapp/core": "^0.0.9",
     "@tailwindcss/forms": "^0.2.1",
     "core-js": "^3.10.1",
     "nuxt": "^2.15.4",
