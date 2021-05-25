@@ -10,14 +10,14 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  data: function() {
+  data () {
     return {
       enabled: false
     }
   },
-  mounted: function() {
-    if(this.$route.query.enabled) {
-      this.$data.enabled = true;
+  mounted () {
+    if (this.$route.query.enabled) {
+      this.$data.enabled = true
     }
   }
 })

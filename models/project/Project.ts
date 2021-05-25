@@ -13,3 +13,34 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+
+
+import { Address } from 'symbol-sdk';
+
+export interface ProjectState {
+  owner: Address;
+  name: string;
+  website: string;
+  shortDescription: string;
+  type: string;
+  category: string;
+  longDescription: string;
+  socialMedia: SocialMedia;
+}
+
+export interface SocialMedia {
+  twitter: string | undefined;
+  facebook: string | undefined;
+  reddit: string | undefined;
+  telegram: string | undefined;
+  github: string | undefined;
+}
+
+export default class Project {
+
+  constructor(public readonly state: ProjectState) {}
+
+  public static create(projectState: ProjectState): Project {
+    return new Project(projectState);
+  }
+}

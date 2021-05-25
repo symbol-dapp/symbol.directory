@@ -12,9 +12,10 @@
         <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
           <div class="grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-3">
-              <label for="name" class="block text-sm font-medium text-gray-700"
-                >Project Name</label
-              >
+              <label
+                for="name"
+                class="block text-sm font-medium text-gray-700"
+              >Project Name</label>
               <input
                 id="name"
                 v-model="name"
@@ -26,12 +27,13 @@
                 placeholder="Project Name"
                 class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-gray-400"
                 @input="change"
-              />
+              >
             </div>
             <div class="col-span-6 sm:col-span-3">
-              <label for="name" class="block text-sm font-medium text-gray-700"
-                >Website</label
-              >
+              <label
+                for="name"
+                class="block text-sm font-medium text-gray-700"
+              >Website</label>
               <input
                 id="website"
                 v-model="website"
@@ -43,12 +45,13 @@
                 placeholder="A URL to visit your product's website"
                 class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-gray-400"
                 @input="change"
-              />
+              >
             </div>
             <div class="col-span-6 sm:col-span-6">
-              <label for="name" class="block text-sm font-medium text-gray-700"
-                >Short Description</label
-              >
+              <label
+                for="name"
+                class="block text-sm font-medium text-gray-700"
+              >Short Description</label>
               <input
                 id="shortDescription"
                 v-model="shortDescription"
@@ -60,12 +63,13 @@
                 placeholder="This is to provide an idea of what does your product do."
                 class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-gray-400"
                 @input="change"
-              />
+              >
             </div>
             <div class="col-span-6 sm:col-span-3">
-              <label for="type" class="block text-sm font-medium text-gray-700"
-                >Type</label
-              >
+              <label
+                for="type"
+                class="block text-sm font-medium text-gray-700"
+              >Type</label>
               <select
                 id="type"
                 v-model="type"
@@ -88,8 +92,7 @@
               <label
                 for="country"
                 class="block text-sm font-medium text-gray-700"
-                >Category</label
-              >
+              >Category</label>
               <select
                 id="category"
                 v-model="category"
@@ -169,23 +172,23 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue'
 export default Vue.extend({
-  name: "SubmitBasicInfo",
-  data() {
+  name: 'SubmitBasicInfo',
+  data () {
     return {
-      name: "",
-      website: "",
-      type: "select-type",
-      category: "select-type",
-      shortDescription: "",
-      longDescription: ""
-    };
+      name: '',
+      website: '',
+      type: 'select-type',
+      category: 'select-type',
+      shortDescription: '',
+      longDescription: ''
+    }
   },
   methods: {
-    change() {
-      this.$emit("basicInfo", this.$data);
+    change () {
+      this.$emit('basicInfo', this.$data)
     }
   }
-});
+})
 </script>

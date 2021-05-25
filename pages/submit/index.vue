@@ -38,30 +38,31 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue'
 
 export default Vue.extend({
-  data() {
+  data () {
     return {
       basicInfo: {},
       socialMedia: {},
       mosaicInfo: {}
-    };
+    }
   },
   methods: {
-    basicInfoChange(data: any) {
-      this.$data.basicInfo = data;
+    basicInfoChange (data: any) {
+      this.$data.basicInfo = data
     },
-    socialMediaChange(data: any) {
-      this.$data.socialMedia = data;
+    socialMediaChange (data: any) {
+      this.$data.socialMedia = data
     },
-    mosaicInfoChange(data: any) {
-      this.$data.mosaicInfo = data;
+    mosaicInfoChange (data: any) {
+      this.$data.mosaicInfo = data
     },
-    onSubmit: function(event: any) {
-      this.$store.commit('submit/storeProject', this.$data);
-      this.$router.push('submit/review');
+    onSubmit (event: any) {
+      event.preventDefault()
+      this.$store.commit('submit/storeProject', this.$data)
+      this.$router.push('submit/review')
     }
   }
-});
+})
 </script>

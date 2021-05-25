@@ -13,3 +13,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import { Account, NetworkType } from "symbol-sdk";
+
+
+export const ownerAddress = Account.generateNewAccount(NetworkType.PRIVATE_TEST);

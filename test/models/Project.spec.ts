@@ -1,0 +1,44 @@
+// Copyright (C) 2021 Aleix Morgadas <aleix@symbol.dapp>
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as
+// published by the Free Software Foundation, either version 3 of the
+// License, or (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+// 
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+import Project, { ProjectState } from '../../models/project/Project'
+import { ownerAddress } from '../objectmothers/AccountObjectMother';
+
+describe('Project', () => {
+  it('a project has a basic info', () => {  
+    const projectState: ProjectState = {
+      name: 'Symbol Dapp',
+      category: 'Framework',
+      owner: ownerAddress.address,
+      type: 'Dapp',
+      shortDescription: 'Symbol Dapp Framework',
+      longDescription: 'Opinionated Symbol Dapp Framework',
+      website: 'https://symboldapp.com',
+      socialMedia: {
+        twitter: 'https://twitter.com/symboldapp',
+        github: 'https://github.com/symboldapp',
+        facebook: undefined,
+        reddit: undefined,
+        telegram: undefined
+      }
+    };
+
+    const project = Project.create(projectState);
+
+    expect(project).toBeDefined();
+  })
+})
