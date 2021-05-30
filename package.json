@@ -2,6 +2,7 @@
   "name": "symbol.directory",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -17,13 +18,12 @@
     "@symbol-dapp/core": "^0.0.9",
     "@tailwindcss/forms": "^0.2.1",
     "core-js": "^3.10.1",
-    "epic-spinners": "^1.1.0",
     "nuxt": "^2.15.4",
     "nuxt-i18n": "^6.25.0",
     "pouchdb-browser": "^7.2.2",
     "symbol-qr-library": "0.14.1-alpha-202103081047",
     "symbol-sdk": "^1.0.0"
-  },
+},
   "devDependencies": {
     "@nuxt/types": "^2.15.4",
     "@nuxt/typescript-build": "^2.1.0",
