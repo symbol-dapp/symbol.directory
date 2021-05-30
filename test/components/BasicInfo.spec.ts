@@ -11,29 +11,29 @@ describe('BasicInfo', () => {
 
   beforeEach(() => {
     const basicInfo = {
-        name: "Symbol Dapp",
-        category: "Framework",
-        type: "Dapp",
-        shortDescription: "Symbol Dapp Framework",
-        longDescription: "Opinionated Symbol Dapp Framework",
-        website: "https://symboldapp.com",
-      };
+      name: 'Symbol Dapp',
+      category: 'Framework',
+      type: 'Dapp',
+      shortDescription: 'Symbol Dapp Framework',
+      longDescription: 'Opinionated Symbol Dapp Framework',
+      website: 'https://symboldapp.com'
+    };
     const state = {
-        basicInfo
-    }
+      basicInfo
+    };
 
     store = new Vuex.Store({
-        modules: {
-            submit: {
-                state,
-                namespaced: true
-            },
+      modules: {
+        submit: {
+          state,
+          namespaced: true
         }
-    })
-});
-  
+      }
+    });
+  });
+
   test('emits on data change', async () => {
-    const { getByText, getByTestId, emitted } = render(SubmitBasicInfo, {localVue, store});
+    const { getByText, getByTestId, emitted } = render(SubmitBasicInfo, { localVue, store });
 
     getByText('Project Information');
 

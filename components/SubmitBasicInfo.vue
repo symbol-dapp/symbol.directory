@@ -185,19 +185,19 @@ export default Vue.extend({
       longDescription: ''
     };
   },
-  methods: {
-    change () {
-      this.$emit('basicInfo', this.$data);
-    }
-  },
-  created() {
-    if(this.$store !== undefined && Object.keys(this.$store.state.submit.basicInfo).length !== 0) {
+  created () {
+    if (this.$store !== undefined && Object.keys(this.$store.state.submit.basicInfo).length !== 0) {
       this.name = this.$store.state.submit.basicInfo.name;
       this.website = this.$store.state.submit.basicInfo.website;
       this.type = this.$store.state.submit.basicInfo.type;
       this.category = this.$store.state.submit.basicInfo.category;
       this.shortDescription = this.$store.state.submit.basicInfo.shortDescription;
       this.longDescription = this.$store.state.submit.basicInfo.longDescription;
+    }
+  },
+  methods: {
+    change () {
+      this.$emit('basicInfo', this.$data);
     }
   }
 });

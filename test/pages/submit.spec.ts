@@ -1,4 +1,4 @@
-import { createLocalVue, mount, shallowMount } from '@vue/test-utils';
+import { createLocalVue, mount } from '@vue/test-utils';
 import Vuex, { Store } from 'vuex';
 
 import SubmitBasicInfo from '@/components/SubmitBasicInfo.vue';
@@ -15,26 +15,28 @@ describe('submit page', () => {
 
   beforeEach(() => {
     state = {
-        basicInfo: {},
-        socialMedia: {},
-        mosaicInfo: {}
-    }
+      basicInfo: {},
+      socialMedia: {},
+      mosaicInfo: {}
+    };
 
     store = new Vuex.Store({
-        modules: {
-            submit: {
-                state,
-                namespaced: true
-            },
+      modules: {
+        submit: {
+          state,
+          namespaced: true
         }
-    })
-});
+      }
+    });
+  });
   test('on data change updates state', () => {
-    const wrapper = mount(Submit, {  store, localVue,
+    const wrapper = mount(Submit, {
+      store,
+      localVue,
       stubs: {
-        SubmitBasicInfo: SubmitBasicInfo,
-        SubmitMosaicInfo: SubmitMosaicInfo,
-        SubmitSocialMedia: SubmitSocialMedia
+        SubmitBasicInfo,
+        SubmitMosaicInfo,
+        SubmitSocialMedia
       }
     });
     const basicInfo = {

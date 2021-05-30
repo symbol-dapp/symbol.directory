@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { add, Address } from 'symbol-sdk';
+import { Address } from 'symbol-sdk';
 
 export interface SocialMedia {
   twitter: string | undefined;

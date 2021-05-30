@@ -38,33 +38,17 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 
 export default Vue.extend({
-  data() {
+  data () {
     return {
       basicInfo: {},
       socialMedia: {},
       mosaicInfo: {}
     };
   },
-  methods: {
-    basicInfoChange(data: any) {
-      this.$data.basicInfo = data;
-    },
-    socialMediaChange(data: any) {
-      this.$data.socialMedia = data;
-    },
-    mosaicInfoChange(data: any) {
-      this.$data.mosaicInfo = data;
-    },
-    onSubmit(event: any) {
-      event.preventDefault();
-      this.$store.commit("submit/storeProject", this.$data);
-      this.$router.push("/submit/review");
-    }
-  },
-  created() {
+  created () {
     if (Object.keys(this.$store.state.submit.basicInfo).length !== 0) {
       this.basicInfo = this.$store.state.submit.basicInfo;
     }
@@ -73,6 +57,22 @@ export default Vue.extend({
     }
     if (Object.keys(this.$store.state.submit.mosaicInfo).length !== 0) {
       this.mosaicInfo = this.$store.state.submit.mosaicInfo;
+    }
+  },
+  methods: {
+    basicInfoChange (data: any) {
+      this.$data.basicInfo = data;
+    },
+    socialMediaChange (data: any) {
+      this.$data.socialMedia = data;
+    },
+    mosaicInfoChange (data: any) {
+      this.$data.mosaicInfo = data;
+    },
+    onSubmit (event: any) {
+      event.preventDefault();
+      this.$store.commit('submit/storeProject', this.$data);
+      this.$router.push('/submit/review');
     }
   }
 });

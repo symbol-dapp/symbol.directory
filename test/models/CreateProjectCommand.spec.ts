@@ -13,19 +13,19 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { NetworkType } from "symbol-sdk";
-import { CreateProjectCommand } from "~/models/project/CreateProjectCommand";
-import { ProjectState } from "~/models/project/Project";
+import { NetworkType } from 'symbol-sdk';
+import { CreateProjectCommand } from '~/models/project/CreateProjectCommand';
+import { ProjectState } from '~/models/project/Project';
 
-describe("CreateProjectCommand", () => {
-  test("Required fields only", () => {
+describe('CreateProjectCommand', () => {
+  test('Required fields only', () => {
     const projectState: ProjectState = {
-      name: "Symbol Dapp",
-      category: "Framework",
-      type: "Dapp",
-      shortDescription: "Symbol Dapp Framework",
-      longDescription: "Opinionated Symbol Dapp Framework",
-      website: "https://symboldapp.com",
+      name: 'Symbol Dapp',
+      category: 'Framework',
+      type: 'Dapp',
+      shortDescription: 'Symbol Dapp Framework',
+      longDescription: 'Opinionated Symbol Dapp Framework',
+      website: 'https://symboldapp.com',
       socialMedia: {
         twitter: undefined,
         github: undefined,

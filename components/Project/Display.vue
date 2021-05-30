@@ -64,7 +64,7 @@
                   </dt>
                   <dd class="mt-1 text-sm text-gray-900">
                     {{ projectState.longDescription }}
-                    <p class="mt-1 text-sm text-gray-500" v-if="projectState.longDescription === ''">
+                    <p v-if="projectState.longDescription === ''" class="mt-1 text-sm text-gray-500">
                       No about provided
                     </p>
                   </dd>
@@ -79,10 +79,15 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 
 export default Vue.extend({
-  name: "ProjectDisplay",
-  props: ["projectState"]
+  name: 'ProjectDisplay',
+  props: {
+    projectState: {
+      type: Object,
+      default: () => {}
+    }
+  }
 });
 </script>

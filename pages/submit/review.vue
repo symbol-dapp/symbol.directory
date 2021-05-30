@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ProjectDisplay :projectState="projectState" />
+    <ProjectDisplay :project-state="projectState" />
     <div class="relative py-6">
       <div class="absolute inset-0 flex items-center" aria-hidden="true">
         <div class="w-full border-t border-gray-300" />
@@ -15,24 +15,24 @@
       class="mt-6 flex flex-col-reverse justify-stretch space-y-4 space-y-reverse sm:flex-row-reverse sm:justify-center sm:space-x-reverse sm:space-y-0 sm:space-x-3 md:mt-0 md:flex-row md:space-x-3"
     >
       <button
-        @click="back"
         type="button"
         class="inline-flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500"
+        @click="back"
       >
         Review Project Info
       </button>
       <button
-        @click="publish"
         type="button"
         class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500"
+        @click="publish"
       >
         Let's publish it!
       </button>
     </div>
     <transition name="fade">
       <div
-        class="bg-white shadow sm:rounded-lg mt-10"
         v-if="transaction !== ''"
+        class="bg-white shadow sm:rounded-lg mt-10"
       >
         <div class="px-4 py-5 sm:p-6">
           <h3 class="text-lg leading-6 font-medium text-gray-900 text-center">
@@ -40,7 +40,7 @@
           </h3>
           <div class="grid grid-cols-2 gap-4">
             <div class="flex justify-center items-center">
-              <img id="qrCode" :src="transaction" />
+              <img id="qrCode" :src="transaction">
             </div>
             <!-- ... -->
             <div v-if="listening" class="flex justify-center items-center">
@@ -50,12 +50,12 @@
                 </p>
                 <div class="flex justify-center mt-5">
                   <div class="sk-chase">
-                    <div class="sk-chase-dot"></div>
-                    <div class="sk-chase-dot"></div>
-                    <div class="sk-chase-dot"></div>
-                    <div class="sk-chase-dot"></div>
-                    <div class="sk-chase-dot"></div>
-                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot" />
+                    <div class="sk-chase-dot" />
+                    <div class="sk-chase-dot" />
+                    <div class="sk-chase-dot" />
+                    <div class="sk-chase-dot" />
+                    <div class="sk-chase-dot" />
                   </div>
                 </div>
               </div>
@@ -67,14 +67,14 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { mapGetters } from "vuex";
-import { Listener, NetworkType, RepositoryFactoryHttp } from "symbol-sdk";
-import { QRCodeGenerator } from "symbol-qr-library";
+import Vue from 'vue';
+import { mapGetters } from 'vuex';
+import { Listener, NetworkType, RepositoryFactoryHttp } from 'symbol-sdk';
+import { QRCodeGenerator } from 'symbol-qr-library';
 
-import { CreateProjectCommand } from "~/models/project/CreateProjectCommand";
+import { CreateProjectCommand } from '~/models/project/CreateProjectCommand';
 
-const nodeUrl = "http://ngl-dual-101.testnet.symboldev.network:3000";
+const nodeUrl = 'http://ngl-dual-101.testnet.symboldev.network:3000';
 const repositoryFactory = new RepositoryFactoryHttp(nodeUrl);
 const listener = new Listener(
   nodeUrl,
@@ -83,27 +83,33 @@ const listener = new Listener(
 );
 
 listener.open(() => {
-  listener.newBlock().subscribe(_ => {
-    console.log("newBlock", _);
-  });
+  listener.newBlock().subscribe((_) => {});
 });
 
 export default Vue.extend({
   components: {},
-  data() {
+  data () {
     return {
-      transaction: "",
+      transaction: '',
       listening: false
     };
   },
+  computed: {
+    ...mapGetters({ projectState: 'submit/projectStateForm' })
+  },
+  created () {
+    if (Object.keys(this.$store.state.submit.basicInfo).length === 0) {
+      this.$router.push('/submit');
+    }
+  },
   methods: {
-    publish: function() {
-      if (this.transaction !== "") {
+    publish () {
+      if (this.transaction !== '') {
         return;
       }
       this.listening = true;
       const command = CreateProjectCommand.of(
-        this.$store.getters["submit/projectStateForm"],
+        this.$store.getters['submit/projectStateForm'],
         NetworkType.TEST_NET
       );
       const transaction = command.toTransaction(
@@ -114,26 +120,18 @@ export default Vue.extend({
       const qrCode = QRCodeGenerator.createTransactionRequest(
         transaction,
         NetworkType.TEST_NET,
-        "3B5E1FA6445653C971A50687E75E6D09FB30481055E3990C84B25E9222DC1155"
+        '3B5E1FA6445653C971A50687E75E6D09FB30481055E3990C84B25E9222DC1155'
       );
       qrCode
         .toBase64()
         .toPromise()
-        .then(qrCodeBase64 => {
+        .then((qrCodeBase64) => {
           this.transaction = qrCodeBase64;
         });
     },
-    back: function() {
+    back () {
       this.$router.go(-1);
     }
-  },
-  created() {
-    if (Object.keys(this.$store.state.submit.basicInfo).length === 0) {
-      this.$router.push("/submit");
-    }
-  },
-  computed: {
-    ...mapGetters({ projectState: "submit/projectStateForm" })
   }
 });
 </script>

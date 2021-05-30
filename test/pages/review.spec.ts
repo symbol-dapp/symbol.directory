@@ -13,27 +13,27 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { createLocalVue, shallowMount } from "@vue/test-utils";
-import Vuex, { Store } from "vuex";
-import { ProjectState } from "~/models/project/Project";
-import Review from "~/pages/submit/review.vue";
-import Display from "@/components/Project/Display.vue";
+import { createLocalVue, shallowMount } from '@vue/test-utils';
+import Vuex, { Store } from 'vuex';
+import Display from '@/components/Project/Display.vue';
+import { ProjectState } from '~/models/project/Project';
+import Review from '~/pages/submit/review.vue';
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
 
-describe("submit page", () => {
+describe('submit page', () => {
   let getters;
   let store: Store<any>;
 
   beforeEach(() => {
     const projectState: ProjectState = {
-      name: "Symbol Dapp",
-      category: "Framework",
-      type: "Dapp",
-      shortDescription: "Symbol Dapp Framework",
-      longDescription: "Opinionated Symbol Dapp Framework",
-      website: "https://symboldapp.com",
+      name: 'Symbol Dapp',
+      category: 'Framework',
+      type: 'Dapp',
+      shortDescription: 'Symbol Dapp Framework',
+      longDescription: 'Opinionated Symbol Dapp Framework',
+      website: 'https://symboldapp.com',
       socialMedia: {
         twitter: undefined,
         github: undefined,
@@ -60,7 +60,7 @@ describe("submit page", () => {
     });
   });
 
-  test("on data change updates state", async () => {
+  test('on data change updates state', () => {
     const methods = {
       init: jest.fn()
     };
@@ -73,12 +73,12 @@ describe("submit page", () => {
       },
       mocks: {
         $router: {
-            push: jest.fn()
+          push: jest.fn()
         }
       }
     });
 
-    const qrCode = wrapper.find("#qrCode");
+    const qrCode = wrapper.find('#qrCode');
     expect(qrCode.exists()).toBeTruthy();
 
     expect(methods.init).toBeCalled();
