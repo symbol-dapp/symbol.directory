@@ -69,22 +69,10 @@
 <script lang="ts">
 import Vue from 'vue';
 import { mapGetters } from 'vuex';
-import { Listener, NetworkType, RepositoryFactoryHttp } from 'symbol-sdk';
+import { NetworkType } from 'symbol-sdk';
 import { QRCodeGenerator } from 'symbol-qr-library';
 
 import { CreateProjectCommand } from '~/models/project/CreateProjectCommand';
-
-const nodeUrl = 'http://ngl-dual-101.testnet.symboldev.network:3000';
-const repositoryFactory = new RepositoryFactoryHttp(nodeUrl);
-const listener = new Listener(
-  nodeUrl,
-  repositoryFactory.createNamespaceRepository(),
-  WebSocket
-);
-
-listener.open(() => {
-  listener.newBlock().subscribe((_) => {});
-});
 
 export default Vue.extend({
   components: {},
