@@ -65,13 +65,13 @@ export default Vue.extend({
     }
   },
   created() {
-    if (Object.keys(this.$store.state.submit.basicInfo)) {
+    if (Object.keys(this.$store.state.submit.basicInfo).length !== 0) {
       this.basicInfo = this.$store.state.submit.basicInfo;
     }
-    if (Object.keys(this.$store.state.submit.socialMedia)) {
+    if (Object.keys(this.$store.state.submit.socialMedia).length !== 0) {
       this.socialMedia = this.$store.state.submit.socialMedia;
     }
-    if (Object.keys(this.$store.state.submit.mosaicInfo)) {
+    if (Object.keys(this.$store.state.submit.mosaicInfo).length !== 0) {
       this.mosaicInfo = this.$store.state.submit.mosaicInfo;
     }
   }

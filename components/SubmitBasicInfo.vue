@@ -191,7 +191,7 @@ export default Vue.extend({
     }
   },
   created() {
-    if(this.$store !== undefined && Object.keys(this.$store.state.submit.basicInfo)) {
+    if(this.$store !== undefined && Object.keys(this.$store.state.submit.basicInfo).length !== 0) {
       this.name = this.$store.state.submit.basicInfo.name;
       this.website = this.$store.state.submit.basicInfo.website;
       this.type = this.$store.state.submit.basicInfo.type;
