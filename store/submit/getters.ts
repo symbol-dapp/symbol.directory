@@ -13,20 +13,18 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { Command } from "@symbol-dapp/core";
-import { NetworkType } from "symbol-sdk";
-import { ProjectState } from "./Project";
-import { ProjectJournalResolver } from "./ProjectJournalResolver";
+import { ProjectState } from "~/models/project/Project"
 
-export class CreateProjectCommand extends Command<ProjectState> {
-    public static TYPE = 'CreateProject';
-    public static VERSION = 1;
-
-    constructor(projectState: ProjectState, networkType: NetworkType) {
-        super(projectState.name, ProjectJournalResolver(networkType), CreateProjectCommand.TYPE, CreateProjectCommand.VERSION, projectState);
-    }
-
-    public static of(projectState: ProjectState, networkType: NetworkType): CreateProjectCommand {
-        return new CreateProjectCommand(projectState, networkType);
+export default {
+    projectStateForm: (state: any): ProjectState => {
+        return {
+            name: state.basicInfo.name,
+            website: state.basicInfo.website,
+            category: state.basicInfo.category,
+            type: state.basicInfo.type,
+            longDescription: state.basicInfo.longDescription,
+            shortDescription: state.basicInfo.shortDescription,
+            socialMedia: state.socialMedia
+        }
     }
 }

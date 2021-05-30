@@ -1,9 +1,9 @@
 import { render, fireEvent } from '@testing-library/vue';
-import MosaicInfo from '@/components/Submit/MosaicInfo.vue';
+import SubmitMosaicInfo from '~/components/SubmitMosaicInfo.vue';
 
-describe('MosaicInfo', () => {
+describe('SubmitMosaicInfo', () => {
   test('emits on data change', async () => {
-    const { getByText, getByTestId, emitted } = render(MosaicInfo);
+    const { getByText, getByTestId, emitted } = render(SubmitMosaicInfo);
 
     getByText('Mosaic Information');
 

@@ -1,9 +1,9 @@
 import { render, fireEvent } from '@testing-library/vue';
-import SocialMedia from '@/components/Submit/SocialMedia.vue';
+import SubmitSocialMedia from '~/components/SubmitSocialMedia.vue';
 
-describe('SocialMedia', () => {
+describe('SubmitSocialMedia', () => {
   test('emits on data change', async () => {
-    const { getByText, getByTestId, emitted } = render(SocialMedia);
+    const { getByText, getByTestId, emitted } = render(SubmitSocialMedia);
 
     getByText('Social Media');
 

@@ -191,8 +191,14 @@ export default Vue.extend({
     }
   },
   created() {
-    this.name = this.$store.state.submit.basicInfo.name;
-    this.website = this.$store.state.submit.basicInfo.website;
+    if(this.$store !== undefined && Object.keys(this.$store.state.submit.basicInfo)) {
+      this.name = this.$store.state.submit.basicInfo.name;
+      this.website = this.$store.state.submit.basicInfo.website;
+      this.type = this.$store.state.submit.basicInfo.type;
+      this.category = this.$store.state.submit.basicInfo.category;
+      this.shortDescription = this.$store.state.submit.basicInfo.shortDescription;
+      this.longDescription = this.$store.state.submit.basicInfo.longDescription;
+    }
   }
 });
 </script>

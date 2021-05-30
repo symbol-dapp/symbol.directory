@@ -38,10 +38,10 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 
 export default Vue.extend({
-  data () {
+  data() {
     return {
       basicInfo: {},
       socialMedia: {},
@@ -49,19 +49,30 @@ export default Vue.extend({
     };
   },
   methods: {
-    basicInfoChange (data: any) {
+    basicInfoChange(data: any) {
       this.$data.basicInfo = data;
     },
-    socialMediaChange (data: any) {
+    socialMediaChange(data: any) {
       this.$data.socialMedia = data;
     },
-    mosaicInfoChange (data: any) {
+    mosaicInfoChange(data: any) {
       this.$data.mosaicInfo = data;
     },
-    onSubmit (event: any) {
+    onSubmit(event: any) {
       event.preventDefault();
-      this.$store.commit('submit/storeProject', this.$data);
-      this.$router.push('/submit/review');
+      this.$store.commit("submit/storeProject", this.$data);
+      this.$router.push("/submit/review");
+    }
+  },
+  created() {
+    if (Object.keys(this.$store.state.submit.basicInfo)) {
+      this.basicInfo = this.$store.state.submit.basicInfo;
+    }
+    if (Object.keys(this.$store.state.submit.socialMedia)) {
+      this.socialMedia = this.$store.state.submit.socialMedia;
+    }
+    if (Object.keys(this.$store.state.submit.mosaicInfo)) {
+      this.mosaicInfo = this.$store.state.submit.mosaicInfo;
     }
   }
 });

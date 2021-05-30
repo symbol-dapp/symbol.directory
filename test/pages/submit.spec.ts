@@ -1,17 +1,40 @@
-import { shallowMount } from '@vue/test-utils';
+import { createLocalVue, mount, shallowMount } from '@vue/test-utils';
+import Vuex, { Store } from 'vuex';
 
-import BasicInfo from '@/components/Submit/BasicInfo.vue';
-import MosaicInfo from '@/components/Submit/MosaicInfo.vue';
-import SocialMedia from '@/components/Submit/SocialMedia.vue';
+import SubmitBasicInfo from '@/components/SubmitBasicInfo.vue';
+import SubmitMosaicInfo from '~/components/SubmitMosaicInfo.vue';
+import SubmitSocialMedia from '~/components/SubmitSocialMedia.vue';
 import Submit from '~/pages/submit/index.vue';
 
+const localVue = createLocalVue();
+localVue.use(Vuex);
+
 describe('submit page', () => {
+  let state;
+  let store: Store<any>;
+
+  beforeEach(() => {
+    state = {
+        basicInfo: {},
+        socialMedia: {},
+        mosaicInfo: {}
+    }
+
+    store = new Vuex.Store({
+        modules: {
+            submit: {
+                state,
+                namespaced: true
+            },
+        }
+    })
+});
   test('on data change updates state', () => {
-    const wrapper = shallowMount(Submit, {
+    const wrapper = mount(Submit, {  store, localVue,
       stubs: {
-        SubmitBasicInfo: BasicInfo,
-        SubmitMosaicInfo: MosaicInfo,
-        SubmitSocialMedia: SocialMedia
+        SubmitBasicInfo: SubmitBasicInfo,
+        SubmitMosaicInfo: SubmitMosaicInfo,
+        SubmitSocialMedia: SubmitSocialMedia
       }
     });
     const basicInfo = {
@@ -35,9 +58,9 @@ describe('submit page', () => {
       mosaicId: '2CF403E85507F39E'
     };
 
-    wrapper.findComponent(BasicInfo).vm.$emit('basicInfo', basicInfo);
-    wrapper.findComponent(MosaicInfo).vm.$emit('mosaicInfo', mosaicInfo);
-    wrapper.findComponent(SocialMedia).vm.$emit('socialMedia', socialMedia);
+    wrapper.findComponent(SubmitBasicInfo).vm.$emit('basicInfo', basicInfo);
+    wrapper.findComponent(SubmitMosaicInfo).vm.$emit('mosaicInfo', mosaicInfo);
+    wrapper.findComponent(SubmitSocialMedia).vm.$emit('socialMedia', socialMedia);
 
     expect(wrapper.vm.$data.basicInfo).toBe(basicInfo);
     expect(wrapper.vm.$data.socialMedia).toBe(socialMedia);

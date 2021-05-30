@@ -1,9 +1,39 @@
 import { render, fireEvent } from '@testing-library/vue';
-import BasicInfo from '@/components/Submit/BasicInfo.vue';
+import Vuex, { Store } from 'vuex';
+import SubmitBasicInfo from '@/components/SubmitBasicInfo.vue';
+import { createLocalVue } from '@vue/test-utils';
+
+const localVue = createLocalVue();
+localVue.use(Vuex);
 
 describe('BasicInfo', () => {
+  let store: Store<any>;
+
+  beforeEach(() => {
+    const basicInfo = {
+        name: "Symbol Dapp",
+        category: "Framework",
+        type: "Dapp",
+        shortDescription: "Symbol Dapp Framework",
+        longDescription: "Opinionated Symbol Dapp Framework",
+        website: "https://symboldapp.com",
+      };
+    const state = {
+        basicInfo
+    }
+
+    store = new Vuex.Store({
+        modules: {
+            submit: {
+                state,
+                namespaced: true
+            },
+        }
+    })
+});
+  
   test('emits on data change', async () => {
-    const { getByText, getByTestId, emitted } = render(BasicInfo);
+    const { getByText, getByTestId, emitted } = render(SubmitBasicInfo, {localVue, store});
 
     getByText('Project Information');
 
