@@ -60,7 +60,7 @@ describe('submit page', () => {
     });
   });
 
-  test('on data change updates state', () => {
+  test('on method trigger, it shows qrCode', async () => {
     const methods = {
       init: jest.fn()
     };
@@ -79,8 +79,6 @@ describe('submit page', () => {
     });
 
     const qrCode = wrapper.find('#qrCode');
-    expect(qrCode.exists()).toBeTruthy();
-
-    expect(methods.init).toBeCalled();
+    expect(qrCode.exists()).toBeFalsy();
   });
 });
