@@ -60,7 +60,7 @@ describe('submit page', () => {
     });
   });
 
-  test('on method trigger, it shows qrCode', async () => {
+  test('on method trigger, it shows qrCode', () => {
     const methods = {
       init: jest.fn()
     };
