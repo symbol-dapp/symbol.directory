@@ -29,7 +29,7 @@
       <div class="text-right mt-5">
         <button
           type="submit"
-          class="ml-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          class="ml-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >
           Continue
         </button>
@@ -45,7 +45,8 @@ export default Vue.extend({
     return {
       basicInfo: {},
       socialMedia: {},
-      mosaicInfo: {}
+      mosaicInfo: {},
+      enabled: false
     };
   },
   created () {
@@ -57,6 +58,11 @@ export default Vue.extend({
     }
     if (Object.keys(this.$store.state.submit.mosaicInfo).length !== 0) {
       this.mosaicInfo = this.$store.state.submit.mosaicInfo;
+    }
+  },
+  mounted () {
+    if (this.$route.query.enabled) {
+      this.$data.enabled = true;
     }
   },
   methods: {
@@ -71,8 +77,13 @@ export default Vue.extend({
     },
     onSubmit (event: any) {
       event.preventDefault();
-      this.$store.commit('submit/storeProject', this.$data);
-      this.$router.push('/submit/review');
+      (this as any).$ga.event('SubmitProject', 'ContinueButton', 'enabled', this.enabled);
+      if (this.enabled) {
+        this.$store.commit('submit/storeProject', this.$data);
+        this.$router.push('/submit/review');
+      } else {
+        alert('Feature disabled. We are in heavy development');
+      }
     }
   }
 });

@@ -13,6 +13,8 @@
     "test": "jest"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.2.0",
+    "@heroicons/vue": "^1.0.1",
     "@nuxtjs/google-analytics": "^2.4.0",
     "@symbol-dapp/core": "^0.0.9",
     "@tailwindcss/forms": "^0.2.1",
@@ -22,10 +24,11 @@
     "pouchdb-browser": "^7.2.2",
     "symbol-qr-library": "0.14.1-alpha-202103081047",
     "symbol-sdk": "^1.0.0"
-},
+  },
   "devDependencies": {
     "@nuxt/types": "^2.15.4",
     "@nuxt/typescript-build": "^2.1.0",
+    "@nuxtjs/composition-api": "^0.24.3",
     "@nuxtjs/eslint-config-typescript": "^6.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/stylelint-module": "^4.0.0",
