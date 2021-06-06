@@ -30,6 +30,11 @@ describe('submit page', () => {
     });
   });
   test('on data change updates state', () => {
+    const $route = {
+      query: {
+        enabled: false
+      }
+    };
     const wrapper = mount(Submit, {
       store,
       localVue,
@@ -37,6 +42,9 @@ describe('submit page', () => {
         SubmitBasicInfo,
         SubmitMosaicInfo,
         SubmitSocialMedia
+      },
+      mocks: {
+        $route
       }
     });
     const basicInfo = {
