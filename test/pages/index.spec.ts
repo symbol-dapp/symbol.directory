@@ -45,6 +45,6 @@ describe('index page', () => {
       store
     });
 
-    getByText('symbol.directory');
+    getByText('Project List');
   });
 });
