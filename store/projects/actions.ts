@@ -19,7 +19,7 @@ import { Commit } from 'vuex';
 import { CreateProjectCommand } from '~/models/project/CreateProjectCommand';
 import { ProjectState } from '~/models/project/Project';
 import { ProjectJournalResolver } from '~/models/project/ProjectJournalResolver';
-const nodeUrl = 'http://ngl-dual-001.testnet.symboldev.network:3000';
+const nodeUrl = 'https://ngl-api-001.testnet.symboldev.network:3001/node/info';
 const repositoryFactory = new RepositoryFactoryHttp(nodeUrl);
 const transactionHttp = repositoryFactory.createTransactionRepository();
 
