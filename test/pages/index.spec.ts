@@ -13,14 +13,36 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import Index from '@/pages/index.vue';
+import { createLocalVue } from '@vue/test-utils';
 import { render } from '@testing-library/vue';
+import Vuex, { Store } from 'vuex';
+
+const localVue = createLocalVue();
+localVue.use(Vuex);
 
 describe('index page', () => {
+  let store: Store<any>;
+
+  beforeEach(() => {
+    store = new Vuex.Store({
+      modules: {
+        projects: {
+          state: {
+            projects: []
+          },
+          namespaced: true
+        }
+      }
+    });
+  });
+
   test('mounts', () => {
     const { getByText } = render(Index, {
       stubs: {
         Logo: true
-      }
+      },
+      localVue,
+      store
     });
 
     getByText('symbol.directory');

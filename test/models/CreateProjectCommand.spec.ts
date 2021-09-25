@@ -38,7 +38,7 @@ describe('CreateProjectCommand', () => {
     const command = new CreateProjectCommand(projectState, NetworkType.TEST_NET);
 
     expect(command.id).toBe('Symbol Dapp');
-    expect(command.journal.pretty()).toBe('TC65NA-IQ5NCF-BQPXUF-U6FGSS-RY2VDV-XGO7VY-M2A');
+    expect(command.journal.pretty()).toBe('TADNEW-7KKX42-QGWPM3-LSZJDD-5USCHT-57BPMJ-T4A');
     expect(command.version).toBe(1);
     expect(command.type).toBe('CreateProject');
     expect(command.data).toBe(projectState);
