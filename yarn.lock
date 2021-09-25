@@ -1762,10 +1762,10 @@
     remark "^13.0.0"
     unist-util-find-all-after "^3.0.2"
 
-"@symbol-dapp/core@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@symbol-dapp/core/-/core-0.0.9.tgz#9af0c287eadf8ac7af3d699fdfd03f57379a19a5"
-  integrity sha512-27/wz6YU59FDMYztkusg/O/iLALLddZNDlIoc6YofQMGxImtp/75EZDVjYlnrdEwPHMbjTRNTnBuDoUlJZyiIw==
+"@symbol-dapp/core@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@symbol-dapp/core/-/core-0.0.10.tgz#0410ceefeca7ec7282e275d05f86b9cb28360e8f"
+  integrity sha512-Hb4LQ+keVWoXYJuUD2Dekp/AVxEiJaDTFKOQsbnPIbfw1VDITsHlr87BRY9b0/AXMhq4RKXn8uSDm90pCg/bdg==
   dependencies:
     js-sha3 "https://github.com/Propine/js-sha3.git"
     pouchdb "^7.2.2"
