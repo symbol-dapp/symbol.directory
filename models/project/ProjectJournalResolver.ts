@@ -17,7 +17,7 @@ import { Address, NetworkType } from 'symbol-sdk';
 
 export const ProjectJournalResolver = (networkType: NetworkType): Address => {
   if (networkType === NetworkType.TEST_NET) {
-    return Address.createFromRawAddress('TC65NAIQ5NCFBQPXUFU6FGSSRY2VDVXGO7VYM2A');
+    return Address.createFromRawAddress('TADNEW-7KKX42-QGWPM3-LSZJDD-5USCHT-57BPMJ-T4A');
   }
   throw new Error('Not implemented');
 };

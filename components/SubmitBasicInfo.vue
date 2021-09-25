@@ -86,6 +86,9 @@
                 <option value="DAPP">
                   DAPP
                 </option>
+                <option value="Framework">
+                  Framework
+                </option>
               </select>
             </div>
             <div class="col-span-6 sm:col-span-3">

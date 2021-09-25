@@ -14,19 +14,23 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { Command } from '@symbol-dapp/core';
-import { NetworkType } from 'symbol-sdk';
-import { ProjectState } from './Project';
+import { Address, NetworkType } from 'symbol-sdk';
+import Project, { ProjectState } from './Project';
 import { ProjectJournalResolver } from './ProjectJournalResolver';
 
 export class CreateProjectCommand extends Command<ProjectState> {
     public static TYPE = 'CreateProject';
     public static VERSION = 1;
 
-    constructor (projectState: ProjectState, networkType: NetworkType) {
-      super(projectState.name, ProjectJournalResolver(networkType), CreateProjectCommand.TYPE, CreateProjectCommand.VERSION, projectState);
+    constructor (projectState: ProjectState, networkType: NetworkType, signer?: Address) {
+      super(projectState.name, ProjectJournalResolver(networkType), CreateProjectCommand.TYPE, CreateProjectCommand.VERSION, projectState, signer);
     }
 
     public static of (projectState: ProjectState, networkType: NetworkType): CreateProjectCommand {
       return new CreateProjectCommand(projectState, networkType);
+    }
+
+    public create () {
+      return new Project(this.data, this.signer!);
     }
 }
