@@ -6,15 +6,16 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import Project from '~/models/project/Project';
 
 export default Vue.extend({
-  async asyncData({ params }) {
+  asyncData ({ params }) {
     const slug = params.slug;
     return { slug };
   },
   computed: {
     project () {
-      return this.$store.state.projects.projects.find(project => project.state.name == this.slug);
+      return this.$store.state.projects.projects.find((project: Project) => project.state.name === this.slug);
     }
   }
 });

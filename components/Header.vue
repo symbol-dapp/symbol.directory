@@ -51,6 +51,8 @@
                   class="block w-full bg-white border border-gray-300 rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-500 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   placeholder="Search"
                   type="search"
+                  v-model="searchText"
+                  @click="search"
                 >
               </div>
             </div>
@@ -84,3 +86,19 @@
     </div>
   </header>
 </template>
+
+<script lang="ts">
+import Vue from 'vue';
+export default Vue.extend({
+  data () {
+    return {
+      searchText: ''
+    };
+  },
+  methods: {
+    search () {
+      this.$emit('search', this.searchText);
+    }
+  }
+});
+</script>

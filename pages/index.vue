@@ -54,15 +54,34 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import Project from '~/models/project/Project';
 
 export default Vue.extend({
+  data () {
+    return {
+      searchText: ''
+    };
+  },
   computed: {
     projects () {
-      return this.$store.state.projects.projects;
+      if (this.searchText === '') {
+        return this.$store.state.projects.projects;
+      }
+      return this.$store.state.projects.projects.filter((project: Project) => {
+        if (project.state.name.includes(this.searchText)) {
+          return true;
+        }
+        return false;
+      });
     }
   },
+  mounted () {
+    this.$on('search', (text: string) => {
+      this.searchText = text;
+    });
+  },
   methods: {
-    seeProject (name) {
+    seeProject (name: string) {
       this.$router.push(`/project/${name}`);
     }
   }
