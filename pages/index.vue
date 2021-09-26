@@ -68,7 +68,7 @@ export default Vue.extend({
         return this.$store.state.projects.projects;
       }
       return this.$store.state.projects.projects.filter((project: Project) => {
-        if (project.state.name.includes(this.searchText)) {
+        if (project.state.name.toLowerCase().includes(this.searchText.toLowerCase())) {
           return true;
         }
         return false;
@@ -76,7 +76,7 @@ export default Vue.extend({
     }
   },
   mounted () {
-    this.$on('search', (text: string) => {
+    this.$root.$on('search', (text: string) => {
       this.searchText = text;
     });
   },

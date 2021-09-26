@@ -13,6 +13,11 @@ export default Vue.extend({
     const slug = params.slug;
     return { slug };
   },
+  data () {
+    return {
+      slug: undefined
+    };
+  },
   computed: {
     project () {
       return this.$store.state.projects.projects.find((project: Project) => project.state.name === this.slug);

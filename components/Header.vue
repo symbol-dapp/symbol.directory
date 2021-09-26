@@ -52,7 +52,7 @@
                   placeholder="Search"
                   type="search"
                   v-model="searchText"
-                  @click="search"
+                  v-on:keyup.enter="search"
                 >
               </div>
             </div>
@@ -97,7 +97,12 @@ export default Vue.extend({
   },
   methods: {
     search () {
-      this.$emit('search', this.searchText);
+      if (this.$route.path !== '') {
+        this.$router.push('/');
+        setTimeout(() => {
+          this.$root.$emit('search', this.searchText);
+        }, 100);
+      }
     }
   }
 });
