@@ -13,7 +13,13 @@
             {{ projectState.shortDescription }}
           </p>
           <div v-if="showRating && projectState.rating !== undefined" class="flex">
-            <p class=" text-sm text-gray-700">{{ projectState.rating }} out of 5 stars</p>
+            <div class="flex items-center mt-4">
+              <ul class="flex justify-center">
+                <li v-for="rating in [1, 2, 3, 4, 5]" :key="rating">
+                  <i :class="[projectState.rating >= rating ? 'fas' : 'far', 'fa-star fa-sm text-yellow-500 mr-1']" @click="reviewAs(rating)" />
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

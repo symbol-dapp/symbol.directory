@@ -14,7 +14,7 @@
 
             <div class="flex items-center mt-4">
               <ul class="flex justify-center">
-                <li v-for="rating in [0, 1, 2, 3, 4]" :key="rating">
+                <li v-for="rating in [1, 2, 3, 4, 5]" :key="rating">
                   <i :class="[review.state.rate >= rating ? 'fas' : 'far', 'fa-star fa-sm text-yellow-500 mr-1']" />
                 </li>
               </ul>
@@ -34,7 +34,7 @@
         <div>
           <div class="flex items-center mt-4">
             <ul class="flex justify-center">
-              <li v-for="rating in [0, 1, 2, 3, 4]" :key="rating">
+              <li v-for="rating in [1, 2, 3, 4, 5]" :key="rating">
                 <i :class="[reviewRating >= rating ? 'fas' : 'far', 'fa-star fa-sm text-yellow-500 mr-1 cursor-pointer']" @click="reviewAs(rating)" />
               </li>
             </ul>
