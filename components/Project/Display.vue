@@ -12,7 +12,7 @@
           <p class="text-sm font-medium text-gray-500">
             {{ projectState.shortDescription }}
           </p>
-          <div class="flex" v-if="showRating && projectState.rating ">
+          <div v-if="showRating && projectState.rating !== undefined" class="flex">
             <p class=" text-sm text-gray-700">{{ projectState.rating }} out of 5 stars</p>
           </div>
         </div>
