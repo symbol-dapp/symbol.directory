@@ -36,7 +36,7 @@ export interface ProjectState {
   reviews: Array<Review>
 }
 
-const PROJECT_STATE_DEFAULTS: ProjectState = {
+const PROJECT_STATE_DEFAULTS = () => ({
   name: '',
   website: '',
   shortDescription: '',
@@ -52,13 +52,13 @@ const PROJECT_STATE_DEFAULTS: ProjectState = {
   },
   rating: undefined,
   reviews: []
-};
+});
 
 export default class Project {
   constructor (public readonly state: ProjectState, public readonly owner: Address) {}
 
   public static create (projectState: ProjectState, signer: Address): Project {
-    return new Project(Object.assign({}, PROJECT_STATE_DEFAULTS, projectState), signer);
+    return new Project(Object.assign({}, PROJECT_STATE_DEFAULTS(), projectState), signer);
   }
 
   public addReview (review: Review) {
