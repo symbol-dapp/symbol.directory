@@ -45,6 +45,6 @@ describe('index page', () => {
       store
     });
 
-    getByText('Project List');
+    getByText('Project List (TEST_NET). Beta testing for some time');
   });
 });

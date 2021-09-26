@@ -89,6 +89,7 @@ import { QRCodeGenerator } from 'symbol-qr-library';
 import { CreateProjectCommand } from '~/models/project/CreateProjectCommand';
 import { WSSRepositoryFactory } from '~/services/RepositoryFacade';
 import { ProjectJournalResolver } from '~/models/project/ProjectJournalResolver';
+const listener = WSSRepositoryFactory.createListener();
 
 export default Vue.extend({
   components: {},
@@ -133,7 +134,6 @@ export default Vue.extend({
         .then((qrCodeBase64) => {
           this.transaction = qrCodeBase64;
         });
-      const listener = WSSRepositoryFactory.createListener();
       listener.open().then(() => {
         listener.confirmed(ProjectJournalResolver(NetworkType.TEST_NET)).subscribe((transaction) => {
           this.listening = false;
