@@ -19,7 +19,7 @@
 -->
       <div class="mt-8 flex justify-center space-x-6">
         <a
-          href="https://twitter.com/aleixmorgadas"
+          href="https://twitter.com/symboldapp"
           target="__bkank"
           class="text-gray-400 hover:text-gray-500"
         >
