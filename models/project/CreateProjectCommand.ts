@@ -13,12 +13,12 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { Command } from '@symbol-dapp/core';
+import { PlainCommand } from '@symbol-dapp/core';
 import { Address, NetworkType } from 'symbol-sdk';
 import Project, { ProjectState } from './Project';
 import { ProjectJournalResolver } from './ProjectJournalResolver';
 
-export class CreateProjectCommand extends Command<ProjectState> {
+export class CreateProjectCommand extends PlainCommand<ProjectState> {
     public static TYPE = 'CreateProject';
     public static VERSION = 1;
 

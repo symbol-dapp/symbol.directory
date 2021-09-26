@@ -1,9 +1,9 @@
-import { Command } from '@symbol-dapp/core';
+import { PlainCommand } from '@symbol-dapp/core';
 import { Address, NetworkType } from 'symbol-sdk';
 import { ProjectJournalResolver } from '../project/ProjectJournalResolver';
 import { Review, ReviewState } from './Review';
 
-export class PublishReviewCommand extends Command<ReviewState> {
+export class PublishReviewCommand extends PlainCommand<ReviewState> {
   public static TYPE = 'PublishReview';
   public static VERSION = 1;
 
