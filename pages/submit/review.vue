@@ -68,7 +68,8 @@
               <div>
                 <NuxtLink
                   to="/"
-                  class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
+                  class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500"
+                >
                   See project at home page
                 </NuxtLink>
               </div>
@@ -95,7 +96,7 @@ export default Vue.extend({
     return {
       transaction: '',
       listening: false,
-      confirmed: false,
+      confirmed: false
     };
   },
   computed: {

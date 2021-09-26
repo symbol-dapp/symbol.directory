@@ -44,10 +44,10 @@ export default {
       (page) => {
         page.data.forEach(transaction => commandDispatcher.dispatch(transaction));
       },
-      (err) => console.error(err),
+      err => console.error(err)
     );
   },
-  addProject ({ commit }: { commit: Commit }, transaction: Transaction) {
+  addProject ({ _ }: { commit: Commit }, transaction: Transaction) {
     commandDispatcher.dispatch(transaction);
   }
 };
