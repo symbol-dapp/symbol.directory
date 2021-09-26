@@ -14,14 +14,13 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import { CommandDispatcher } from '@symbol-dapp/core';
 import { RawCommand } from '@symbol-dapp/core/dist/lib/RawCommand';
-import { RepositoryFactoryHttp, TransactionSearchCriteria, TransactionGroup, NetworkType, Order } from 'symbol-sdk';
+import { TransactionSearchCriteria, TransactionGroup, NetworkType, Order, Transaction } from 'symbol-sdk';
 import { Commit } from 'vuex';
 import { CreateProjectCommand } from '~/models/project/CreateProjectCommand';
 import { ProjectState } from '~/models/project/Project';
 import { ProjectJournalResolver } from '~/models/project/ProjectJournalResolver';
-const nodeUrl = 'https://ngl-api-001.testnet.symboldev.network:3001';
-const repositoryFactory = new RepositoryFactoryHttp(nodeUrl);
-const transactionHttp = repositoryFactory.createTransactionRepository();
+import { HTTPRepositoryFactory } from '~/services/RepositoryFacade';
+const transactionHttp = HTTPRepositoryFactory.createTransactionRepository();
 
 const commandDispatcher = new CommandDispatcher();
 
@@ -39,7 +38,7 @@ export default {
       address: ProjectJournalResolver(NetworkType.TEST_NET),
       pageNumber: 1,
       pageSize: 100,
-      order: Order.Desc
+      order: Order.Asc
     };
     transactionHttp.search(searchCriteria).subscribe(
       (page) => {
@@ -47,5 +46,8 @@ export default {
       },
       (err) => console.error(err),
     );
+  },
+  addProject ({ commit }: { commit: Commit }, transaction: Transaction) {
+    commandDispatcher.dispatch(transaction);
   }
 };

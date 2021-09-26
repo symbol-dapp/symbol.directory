@@ -61,6 +61,18 @@
                 </div>
               </div>
             </div>
+            <div v-if="confirmed" class="flex flex-col justify-center items-center">
+              <p class="text-md text-gray-800 mb-4">
+                Confirmed 👏
+              </p>
+              <div>
+                <NuxtLink
+                  to="/"
+                  class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
+                  See project at home page
+                </NuxtLink>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -74,13 +86,16 @@ import { NetworkType } from 'symbol-sdk';
 import { QRCodeGenerator } from 'symbol-qr-library';
 
 import { CreateProjectCommand } from '~/models/project/CreateProjectCommand';
+import { WSSRepositoryFactory } from '~/services/RepositoryFacade';
+import { ProjectJournalResolver } from '~/models/project/ProjectJournalResolver';
 
 export default Vue.extend({
   components: {},
   data () {
     return {
       transaction: '',
-      listening: false
+      listening: false,
+      confirmed: false,
     };
   },
   computed: {
@@ -117,6 +132,14 @@ export default Vue.extend({
         .then((qrCodeBase64) => {
           this.transaction = qrCodeBase64;
         });
+      const listener = WSSRepositoryFactory.createListener();
+      listener.open().then(() => {
+        listener.confirmed(ProjectJournalResolver(NetworkType.TEST_NET)).subscribe((transaction) => {
+          this.listening = false;
+          this.confirmed = true;
+          this.$store.dispatch('projects/addProject', transaction);
+        });
+      });
     },
     back () {
       this.$router.go(-1);

@@ -60,11 +60,6 @@ export default Vue.extend({
       this.mosaicInfo = this.$store.state.submit.mosaicInfo;
     }
   },
-  mounted () {
-    if (this.$route.query.enabled) {
-      this.$data.enabled = true;
-    }
-  },
   methods: {
     basicInfoChange (data: any) {
       this.$data.basicInfo = data;
@@ -78,12 +73,8 @@ export default Vue.extend({
     onSubmit (event: any) {
       event.preventDefault();
       (this as any).$ga.event('SubmitProject', 'ContinueButton', 'enabled', this.enabled);
-      if (this.enabled) {
-        this.$store.commit('submit/storeProject', this.$data);
-        this.$router.push('/submit/review');
-      } else {
-        alert('Feature disabled. We are in heavy development');
-      }
+      this.$store.commit('submit/storeProject', this.$data);
+      this.$router.push('/submit/review');
     }
   }
 });
