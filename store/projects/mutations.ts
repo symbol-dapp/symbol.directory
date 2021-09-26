@@ -1,4 +1,5 @@
 import Project from '~/models/project/Project';
+import { Review } from '~/models/review/Review';
 
 export default {
   addProject (state: any, project: Project) {
@@ -9,5 +10,9 @@ export default {
   },
   cleanProjects (state: any) {
     state.projects = [];
+  },
+  addReview (state: any, { id, review }: {id: string, review: Review}) {
+    const project = state.projects.find((project: Project) => project.state.name === id);
+    project.addReview(review);
   }
 };

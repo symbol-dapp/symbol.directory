@@ -12,6 +12,9 @@
           <p class="text-sm font-medium text-gray-500">
             {{ projectState.shortDescription }}
           </p>
+          <div class="flex" v-if="showRating && projectState.rating ">
+            <p class=" text-sm text-gray-700">{{ projectState.rating }} out of 5 stars</p>
+          </div>
         </div>
       </div>
       <div
@@ -87,6 +90,10 @@ export default Vue.extend({
     projectState: {
       type: Object,
       default: () => {}
+    },
+    showRating: {
+      type: Boolean,
+      default: true
     }
   }
 });

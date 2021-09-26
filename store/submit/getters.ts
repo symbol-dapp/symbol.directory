@@ -24,7 +24,9 @@ export default {
       type: state.basicInfo.type,
       longDescription: state.basicInfo.longDescription,
       shortDescription: state.basicInfo.shortDescription,
-      socialMedia: state.socialMedia
+      socialMedia: state.socialMedia,
+      rating: undefined,
+      reviews: []
     };
   }
 };

@@ -31,7 +31,9 @@ describe('Project', () => {
         facebook: undefined,
         reddit: undefined,
         telegram: undefined
-      }
+      },
+      rating: undefined,
+      reviews: []
     };
 
     const project = Project.create(projectState, ownerAddress.address);

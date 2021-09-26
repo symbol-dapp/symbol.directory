@@ -14,6 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { Address } from 'symbol-sdk';
+import { Review } from '../review/Review';
 
 export interface SocialMedia {
   twitter: string | undefined;
@@ -31,12 +32,38 @@ export interface ProjectState {
   category: string;
   longDescription: string;
   socialMedia: SocialMedia;
+  rating: number | undefined;
+  reviews: Array<Review>
 }
+
+const PROJECT_STATE_DEFAULTS: ProjectState = {
+  name: '',
+  website: '',
+  shortDescription: '',
+  type: '',
+  category: '',
+  longDescription: '',
+  socialMedia: {
+    github: undefined,
+    twitter: undefined,
+    facebook: undefined,
+    reddit: undefined,
+    telegram: undefined
+  },
+  rating: undefined,
+  reviews: []
+};
 
 export default class Project {
   constructor (public readonly state: ProjectState, public readonly owner: Address) {}
 
   public static create (projectState: ProjectState, signer: Address): Project {
-    return new Project(projectState, signer);
+    return new Project(Object.assign({}, PROJECT_STATE_DEFAULTS, projectState), signer);
+  }
+
+  public addReview (review: Review) {
+    this.state.reviews.push(review);
+    this.state.rating = (this.state.reviews.map(review => review.state.rate)
+      .reduce((prev: number, next: number) => prev + next), 0) / this.state.reviews.length;
   }
 }

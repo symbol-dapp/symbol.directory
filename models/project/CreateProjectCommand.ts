@@ -31,6 +31,6 @@ export class CreateProjectCommand extends Command<ProjectState> {
     }
 
     public create () {
-      return new Project(this.data, this.signer!);
+      return Project.create(this.data, this.signer!);
     }
 }

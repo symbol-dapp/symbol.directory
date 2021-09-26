@@ -40,7 +40,9 @@ describe('submit page', () => {
         facebook: undefined,
         reddit: undefined,
         telegram: undefined
-      }
+      },
+      rating: undefined,
+      reviews: []
     };
     getters = {
       projectStateForm: () => projectState

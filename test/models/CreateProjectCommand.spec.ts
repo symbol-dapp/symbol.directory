@@ -32,7 +32,9 @@ describe('CreateProjectCommand', () => {
         facebook: undefined,
         reddit: undefined,
         telegram: undefined
-      }
+      },
+      rating: undefined,
+      reviews: []
     };
 
     const command = new CreateProjectCommand(projectState, NetworkType.TEST_NET);
