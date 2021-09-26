@@ -9,8 +9,14 @@
           Scan the QR Code in your Symbol Wallet
         </h3>
         <div class="grid grid-cols-2 gap-4">
-          <div class="flex justify-center items-center">
+          <div class="flex flex-col justify-center items-center">
             <img id="qrCode" :src="transaction">
+            <a
+              href="https://vimeo.com/615368477"
+              target="__blank"
+              class="inline-flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
+              Announce Transaction Tutorial
+            </a>
           </div>
           <!-- ... -->
           <div v-if="listening" class="flex justify-center items-center">
