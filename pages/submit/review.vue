@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mt-4">
     <ProjectDisplay :project-state="projectState" />
     <div class="relative py-6">
       <div class="absolute inset-0 flex items-center" aria-hidden="true">

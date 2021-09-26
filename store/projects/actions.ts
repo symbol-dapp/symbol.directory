@@ -47,5 +47,12 @@ export default {
       },
       (err) => console.error(err),
     );
+  },
+  async waitForCreateProjectCommand ({ commit }: { commit: Commit }, command: CreateProjectCommand) {
+    const listener = repositoryFactory.createListener();
+    await listener.open();
+    listener.confirmed(ProjectJournalResolver(NetworkType.TEST_NET)).subscribe(transaction => {
+      transaction
+    });
   }
 };
