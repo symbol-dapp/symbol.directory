@@ -19,6 +19,7 @@ import { Commit } from 'vuex';
 import { CreateProjectCommand } from '~/models/project/CreateProjectCommand';
 import { ProjectState } from '~/models/project/Project';
 import { ProjectJournalResolver } from '~/models/project/ProjectJournalResolver';
+import RemoveProjectCommand from '~/models/project/RemoveProjectCommand';
 import { PublishReviewCommand } from '~/models/review/PublishReviewCommand';
 import { ReviewState } from '~/models/review/Review';
 import { HTTPRepositoryFactory } from '~/services/RepositoryFacade';
@@ -36,11 +37,17 @@ const createPublishReviewCommandHandler = (commit: Commit) => (command: RawComma
   commit('addReview', { id: command.id, review: publishReviewCommand.create() });
 };
 
+const removeProjectCommandHandler = (commit: Commit) => (command: RawCommand<string>) => {
+  commit('removeProject', new RemoveProjectCommand(command.id, NetworkType.TEST_NET, command.signer));
+};
+
 export default {
   fullSyncProjects ({ commit }: { commit: Commit }) {
     commit('cleanProjects');
     commandDispatcher.register(CreateProjectCommand.TYPE, createProjectCommandHandler(commit));
     commandDispatcher.register(PublishReviewCommand.TYPE, createPublishReviewCommandHandler(commit));
+    commandDispatcher.register(RemoveProjectCommand.TYPE, removeProjectCommandHandler(commit));
+
     const searchCriteria: TransactionSearchCriteria = {
       group: TransactionGroup.Confirmed,
       address: ProjectJournalResolver(NetworkType.TEST_NET),
@@ -59,6 +66,9 @@ export default {
     commandDispatcher.dispatch(transaction);
   },
   addReview (_: any, transaction: Transaction) {
+    commandDispatcher.dispatch(transaction);
+  },
+  removeProject (_: any, transaction: Transaction) {
     commandDispatcher.dispatch(transaction);
   }
 };
