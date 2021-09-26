@@ -2,12 +2,12 @@
   <div class="my-5">
     <div>
       <h2 class="text-xl font-bold text-gray-900">
-        Customer Reviews
+        Reviews
       </h2>
       <div v-if="reviews.length === 0" class="my-5 p-5 bg-white flex justify-center shadow sm:rounded-lg">
         No reviews yet
       </div>
-      <div class="my-10 px-5 bg-white shadow sm:rounded-lg">
+      <div class="my-5 px-5 bg-white shadow sm:rounded-lg">
         <div v-for="(review, reviewIdx) in reviews" :key="review.id" class="flex text-sm text-gray-500 space-x-4">
           <div :class="[reviewIdx === 0 ? '' : 'border-t border-gray-200', 'flex-1 py-10']">
             <h3 class="font-medium text-gray-900">{{ review.author.address.pretty() }}</h3>
