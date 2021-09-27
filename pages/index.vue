@@ -8,11 +8,11 @@
       </div>
     </header>
     <div class="flex flex-col">
-      <div class="flex justify-center mb-4">
+      <div class="flex flex-wrap md:justify-center mb-4">
         <button
           v-for="type in types"
           :key="type"
-          :class="[selectedType === type ? 'bg-indigo-600 hover:bg-indigo-700 text-white' : 'bg-white hover:bg-gray-50', 'mx-2 inline-flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500']"
+          :class="[selectedType === type ? 'bg-indigo-600 hover:bg-indigo-700 text-white' : 'bg-white hover:bg-gray-50', 'mx-2 mt-1 inline-flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500']"
           @click="filterByType(type)" >
           {{ type }}
         </button>
