@@ -105,7 +105,6 @@ export default Vue.extend({
       if (this.transaction !== '') {
         return;
       }
-      const listener = WSSRepositoryFactory.createListener();
       this.listening = true;
       const command = CreateProjectCommand.of(
         this.$store.getters['submit/projectStateForm']
@@ -126,6 +125,7 @@ export default Vue.extend({
         .then((qrCodeBase64) => {
           this.transaction = qrCodeBase64;
         });
+      const listener = WSSRepositoryFactory.createListener();
       listener.open().then(() => {
         listener.confirmed(ProjectJournalResolver()).subscribe((transaction) => {
           this.listening = false;

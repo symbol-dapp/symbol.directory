@@ -12,7 +12,7 @@
           <p class="text-sm font-medium text-gray-500">
             {{ projectState.shortDescription }}
           </p>
-          <div class="flex mt-4">
+          <div class="flex items-center mt-4">
             <div v-if="showRating && projectState.rating !== undefined" class="flex items-center mr-4">
               <ul class="flex justify-center">
                 <li v-for="rating in [1, 2, 3, 4, 5]" :key="rating">
