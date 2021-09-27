@@ -3,7 +3,7 @@
     <header>
       <div class="max-w-7xl mx-auto mb-5">
         <h1 class="text-3xl font-bold leading-tight text-gray-900">
-          Project List (TEST_NET). Beta testing for some time
+          Project List (MAIN_NET)
         </h1>
       </div>
     </header>
