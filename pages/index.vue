@@ -139,30 +139,9 @@ export default Vue.extend({
   },
   computed: {
     projects () {
-      if (this.searchText === '') {
-        return this.$store.state.projects.projects;
-      }
-      if (this.selectedType !== '') {
-        return this.$store.state.projects.projects.filter((project: Project) => {
-          if (
-            project.state.type
-              .toLowerCase() === this.selectedType.toLowerCase()
-          ) {
-            return true;
-          }
-          return false;
-        });
-      }
-      return this.$store.state.projects.projects.filter((project: Project) => {
-        if (
-          project.state.name
-            .toLowerCase()
-            .includes(this.searchText.toLowerCase())
-        ) {
-          return true;
-        }
-        return false;
-      });
+      return this.$store.state.projects.projects
+        .filter((project: Project) => this.searchText === '' || project.state.name.toLowerCase().includes(this.searchText.toLowerCase()))
+        .filter((project: Project) => this.selectedType === '' || project.state.type.toLowerCase() === this.selectedType.toLowerCase());
     },
     types () {
       return ['Dapp', 'DeFi', 'NFT', 'Protocol', 'Education', 'Tools', 'Wallet', 'Team'];
