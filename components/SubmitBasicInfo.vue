@@ -86,8 +86,26 @@
                 <option value="DAPP">
                   DAPP
                 </option>
-                <option value="Framework">
-                  Framework
+                <option value="DeFi">
+                  DeFi
+                </option>
+                <option value="NFT">
+                  NFT
+                </option>
+                <option value="Protocol">
+                  Protocol
+                </option>
+                <option value="Education">
+                  Education
+                </option>
+                <option value="Tools">
+                  Tools
+                </option>
+                <option value="Wallet">
+                  Wallet
+                </option>
+                <option value="Team">
+                  Team
                 </option>
               </select>
             </div>
