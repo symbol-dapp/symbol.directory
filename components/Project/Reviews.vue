@@ -56,7 +56,7 @@
             </button>
           </div>
         </div>
-        <Announcer :transaction="transaction" :on-confirmed="onConfirmed" :go-to-path="undefined" />
+        <Announcer v-if="transaction !== ''" :transaction="transaction" :on-confirmed="onConfirmed" :go-to-path="undefined" />
       </form>
     </div>
   </div>

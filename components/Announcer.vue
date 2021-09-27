@@ -53,6 +53,7 @@ import { Transaction } from 'symbol-sdk';
 import Vue from 'vue';
 import { ProjectJournalResolver } from '~/models/project/ProjectJournalResolver';
 import { WSSRepositoryFactory } from '~/services/RepositoryFacade';
+const listener = WSSRepositoryFactory.createListener();
 
 export default Vue.extend({
   props: {
@@ -80,7 +81,6 @@ export default Vue.extend({
     };
   },
   mounted () {
-    const listener = WSSRepositoryFactory.createListener();
     listener.open().then(() => {
       listener.confirmed(ProjectJournalResolver()).subscribe((transaction) => {
         this.listening = false;
