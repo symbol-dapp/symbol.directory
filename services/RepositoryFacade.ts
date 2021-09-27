@@ -1,8 +1,8 @@
 import { NetworkType, RepositoryFactoryHttp } from 'symbol-sdk';
 import NetworkTypeResolver from './NetworkTypeResolver';
 
-const nodeHttpsURLMainNet = 'https://xym.jp1.node.leywapool.com:3001';
-const nodeWssURLMainNet = 'wss://xym.jp1.node.leywapool.com:3001/ws';
+const nodeHttpsURLMainNet = 'https://001symbol.blockchain-node.tech:3001';
+const nodeWssURLMainNet = 'wss://001symbol.blockchain-node.tech:3001/ws';
 
 const nodeHttpsURLTestNet = 'https://ngl-api-001.testnet.symboldev.network:3001';
 const nodeWssURLTestNet = 'wss://ngl-api-001.testnet.symboldev.network:3001/ws';

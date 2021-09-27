@@ -76,14 +76,12 @@
 <script lang="ts">
 import Vue from 'vue';
 import { mapGetters } from 'vuex';
-import { NetworkType } from 'symbol-sdk';
 import { QRCodeGenerator } from 'symbol-qr-library';
 
 import { CreateProjectCommand } from '~/models/project/CreateProjectCommand';
 import { WSSRepositoryFactory } from '~/services/RepositoryFacade';
 import { ProjectJournalResolver } from '~/models/project/ProjectJournalResolver';
 import NetworkTypeResolver from '~/services/NetworkTypeResolver';
-const listener = WSSRepositoryFactory.createListener();
 
 export default Vue.extend({
   components: {},
@@ -107,6 +105,7 @@ export default Vue.extend({
       if (this.transaction !== '') {
         return;
       }
+      const listener = WSSRepositoryFactory.createListener();
       this.listening = true;
       const command = CreateProjectCommand.of(
         this.$store.getters['submit/projectStateForm']
