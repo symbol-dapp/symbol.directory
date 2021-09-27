@@ -13,7 +13,6 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { NetworkType } from 'symbol-sdk';
 import { CreateProjectCommand } from '~/models/project/CreateProjectCommand';
 import { ProjectState } from '~/models/project/Project';
 
@@ -37,7 +36,7 @@ describe('CreateProjectCommand', () => {
       reviews: []
     };
 
-    const command = new CreateProjectCommand(projectState, NetworkType.TEST_NET);
+    const command = new CreateProjectCommand(projectState);
 
     expect(command.id).toBe('Symbol Dapp');
     expect(command.journal.pretty()).toBe('TADNEW-7KKX42-QGWPM3-LSZJDD-5USCHT-57BPMJ-T4A');

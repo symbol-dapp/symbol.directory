@@ -82,7 +82,7 @@ export default Vue.extend({
   },
   mounted () {
     listener.open().then(() => {
-      listener.confirmed(ProjectJournalResolver(NetworkType.TEST_NET)).subscribe((transaction) => {
+      listener.confirmed(ProjectJournalResolver()).subscribe((transaction) => {
         this.listening = false;
         this.confirmed = true;
         this.onConfirmed(transaction);

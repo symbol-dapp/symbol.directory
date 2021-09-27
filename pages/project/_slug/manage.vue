@@ -32,10 +32,11 @@
 
 <script lang="ts">
 import { QRCodeGenerator } from 'symbol-qr-library';
-import { NetworkType, Transaction } from 'symbol-sdk';
+import { Transaction } from 'symbol-sdk';
 import Vue from 'vue';
 import Project from '~/models/project/Project';
 import RemoveProjectCommand from '~/models/project/RemoveProjectCommand';
+import NetworkTypeResolver from '~/services/NetworkTypeResolver';
 
 export default Vue.extend({
   asyncData ({ params }) {
@@ -56,17 +57,16 @@ export default Vue.extend({
   methods: {
     deleteProject () {
       const command = RemoveProjectCommand.of(
-        this.project.state.name,
-        NetworkType.TEST_NET
+        this.project.state.name
       );
       const transaction = command.toTransaction(
         1615853185,
-        NetworkType.TEST_NET
+        NetworkTypeResolver()
       );
 
       const qrCode = QRCodeGenerator.createTransactionRequest(
         transaction,
-        NetworkType.TEST_NET,
+        NetworkTypeResolver(),
         this.$store.state.node.nodeInfo.networkGenerationHashSeed // network/node
       );
       qrCode

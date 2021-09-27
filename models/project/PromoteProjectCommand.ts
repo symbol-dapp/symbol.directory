@@ -14,7 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { MosaicCommand } from '@symbol-dapp/core';
-import { Address, Mosaic, NamespaceId, NetworkType, UInt64 } from 'symbol-sdk';
+import { Address, Mosaic, NamespaceId, UInt64 } from 'symbol-sdk';
 import { ProjectJournalResolver } from './ProjectJournalResolver';
 
 export default class PromoteProjectCommand extends MosaicCommand<string> {
@@ -22,11 +22,11 @@ export default class PromoteProjectCommand extends MosaicCommand<string> {
     public static VERSION = 1;
     public static COST_PER_BLOCK = 0.001;
 
-    constructor (projectId: string, mosaics: Mosaic[], networkType: NetworkType, signer?: Address) {
-      super(projectId, ProjectJournalResolver(networkType), PromoteProjectCommand.TYPE, PromoteProjectCommand.VERSION, projectId, mosaics, signer);
+    constructor (projectId: string, mosaics: Mosaic[], signer?: Address) {
+      super(projectId, ProjectJournalResolver(), PromoteProjectCommand.TYPE, PromoteProjectCommand.VERSION, projectId, mosaics, signer);
     }
 
-    public static of (projectId: string, blocks: number, networkType: NetworkType): PromoteProjectCommand {
-      return new PromoteProjectCommand(projectId, [new Mosaic(new NamespaceId('symbol.xym'), UInt64.fromUint(blocks * this.COST_PER_BLOCK))], networkType);
+    public static of (projectId: string, blocks: number): PromoteProjectCommand {
+      return new PromoteProjectCommand(projectId, [new Mosaic(new NamespaceId('symbol.xym'), UInt64.fromUint(blocks * this.COST_PER_BLOCK))]);
     }
 }

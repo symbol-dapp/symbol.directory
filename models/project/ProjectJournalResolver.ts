@@ -14,10 +14,14 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { Address, NetworkType } from 'symbol-sdk';
+import NetworkTypeResolver from '~/services/NetworkTypeResolver';
 
-export const ProjectJournalResolver = (networkType: NetworkType): Address => {
-  if (networkType === NetworkType.TEST_NET) {
+export const ProjectJournalResolver = (): Address => {
+  if (NetworkTypeResolver() === NetworkType.TEST_NET) {
     return Address.createFromRawAddress('TADNEW-7KKX42-QGWPM3-LSZJDD-5USCHT-57BPMJ-T4A');
   }
-  throw new Error('Not implemented');
+  if (NetworkTypeResolver() === NetworkType.MAIN_NET) {
+    return Address.createFromRawAddress('NASGZJ-NBEVXB-656M3C-2JSKYH-SM47EO-QQF4M5-25A');
+  }
+  throw new Error('Not implemented for this network');
 };

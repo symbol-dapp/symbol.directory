@@ -82,6 +82,7 @@ import { QRCodeGenerator } from 'symbol-qr-library';
 import { CreateProjectCommand } from '~/models/project/CreateProjectCommand';
 import { WSSRepositoryFactory } from '~/services/RepositoryFacade';
 import { ProjectJournalResolver } from '~/models/project/ProjectJournalResolver';
+import NetworkTypeResolver from '~/services/NetworkTypeResolver';
 const listener = WSSRepositoryFactory.createListener();
 
 export default Vue.extend({
@@ -108,17 +109,16 @@ export default Vue.extend({
       }
       this.listening = true;
       const command = CreateProjectCommand.of(
-        this.$store.getters['submit/projectStateForm'],
-        NetworkType.TEST_NET
+        this.$store.getters['submit/projectStateForm']
       );
       const transaction = command.toTransaction(
         1615853185,
-        NetworkType.TEST_NET
+        NetworkTypeResolver()
       );
 
       const qrCode = QRCodeGenerator.createTransactionRequest(
         transaction,
-        NetworkType.TEST_NET,
+        NetworkTypeResolver(),
         this.$store.state.node.nodeInfo.networkGenerationHashSeed // network/node
       );
       qrCode
@@ -128,7 +128,7 @@ export default Vue.extend({
           this.transaction = qrCodeBase64;
         });
       listener.open().then(() => {
-        listener.confirmed(ProjectJournalResolver(NetworkType.TEST_NET)).subscribe((transaction) => {
+        listener.confirmed(ProjectJournalResolver()).subscribe((transaction) => {
           this.listening = false;
           this.confirmed = true;
           this.$store.dispatch('projects/addProject', transaction);

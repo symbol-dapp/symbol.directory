@@ -13,16 +13,18 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { NetworkType } from 'symbol-sdk';
 import { ProjectJournalResolver } from '~/models/project/ProjectJournalResolver';
 
 describe('ProjectJournalResolver', () => {
   test('TEST_NET', () => {
-    const journal = ProjectJournalResolver(NetworkType.TEST_NET);
+    process.env.PRODUCTION = 'false';
+    const journal = ProjectJournalResolver();
     expect(journal.pretty()).toBe('TADNEW-7KKX42-QGWPM3-LSZJDD-5USCHT-57BPMJ-T4A');
   });
 
   test('MAIN_NET not available yet', () => {
-    expect(() => ProjectJournalResolver(NetworkType.MAIN_NET)).toThrowError();
+    process.env.PRODUCTION = 'true';
+    const journal = ProjectJournalResolver();
+    expect(journal.pretty()).toBe('NASGZJ-NBEVXB-656M3C-2JSKYH-SM47EO-QQF4M5-25A');
   });
 });

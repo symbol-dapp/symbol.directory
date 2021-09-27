@@ -1,5 +1,5 @@
 import { PlainCommand } from '@symbol-dapp/core';
-import { Address, NetworkType } from 'symbol-sdk';
+import { Address } from 'symbol-sdk';
 import { ProjectJournalResolver } from '../project/ProjectJournalResolver';
 import { Review, ReviewState } from './Review';
 
@@ -7,12 +7,12 @@ export class PublishReviewCommand extends PlainCommand<ReviewState> {
   public static TYPE = 'PublishReview';
   public static VERSION = 1;
 
-  constructor (projectId: string, projectState: ReviewState, networkType: NetworkType, signer?: Address) {
-    super(projectId, ProjectJournalResolver(networkType), PublishReviewCommand.TYPE, PublishReviewCommand.VERSION, projectState, signer);
+  constructor (projectId: string, projectState: ReviewState, signer?: Address) {
+    super(projectId, ProjectJournalResolver(), PublishReviewCommand.TYPE, PublishReviewCommand.VERSION, projectState, signer);
   }
 
-  public static of (projectId: string, reviewState: ReviewState, networkType: NetworkType): PublishReviewCommand {
-    return new PublishReviewCommand(projectId, reviewState, networkType);
+  public static of (projectId: string, reviewState: ReviewState): PublishReviewCommand {
+    return new PublishReviewCommand(projectId, reviewState);
   }
 
   public create () {

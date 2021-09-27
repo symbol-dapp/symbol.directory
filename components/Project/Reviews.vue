@@ -64,9 +64,10 @@
 
 <script lang="ts">
 import { QRCodeGenerator } from 'symbol-qr-library';
-import { NetworkType, Transaction } from 'symbol-sdk';
+import { Transaction } from 'symbol-sdk';
 import Vue from 'vue';
 import { PublishReviewCommand } from '~/models/review/PublishReviewCommand';
+import NetworkTypeResolver from '~/services/NetworkTypeResolver';
 
 export default Vue.extend({
   name: 'ProjectReviews',
@@ -97,17 +98,16 @@ export default Vue.extend({
         {
           rate: this.reviewRating,
           content: this.content
-        },
-        NetworkType.TEST_NET
+        }
       );
       const transaction = command.toTransaction(
         1615853185,
-        NetworkType.TEST_NET
+        NetworkTypeResolver()
       );
 
       const qrCode = QRCodeGenerator.createTransactionRequest(
         transaction,
-        NetworkType.TEST_NET,
+        NetworkTypeResolver(),
         this.$store.state.node.nodeInfo.networkGenerationHashSeed
       );
       qrCode

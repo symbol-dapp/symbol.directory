@@ -28,17 +28,17 @@ const transactionHttp = HTTPRepositoryFactory.createTransactionRepository();
 const commandDispatcher = new CommandDispatcher();
 
 const createProjectCommandHandler = (commit: Commit) => (command: RawCommand<ProjectState>) => {
-  const createProjectCommand = new CreateProjectCommand(command.data, NetworkType.TEST_NET, command.signer);
+  const createProjectCommand = new CreateProjectCommand(command.data, command.signer);
   commit('addProject', createProjectCommand.create());
 };
 
 const createPublishReviewCommandHandler = (commit: Commit) => (command: RawCommand<ReviewState>) => {
-  const publishReviewCommand = new PublishReviewCommand(command.id, command.data, NetworkType.TEST_NET, command.signer);
+  const publishReviewCommand = new PublishReviewCommand(command.id, command.data, command.signer);
   commit('addReview', { id: command.id, review: publishReviewCommand.create() });
 };
 
 const removeProjectCommandHandler = (commit: Commit) => (command: RawCommand<string>) => {
-  commit('removeProject', new RemoveProjectCommand(command.id, NetworkType.TEST_NET, command.signer));
+  commit('removeProject', new RemoveProjectCommand(command.id, command.signer));
 };
 
 export default {
@@ -50,7 +50,7 @@ export default {
 
     const searchCriteria: TransactionSearchCriteria = {
       group: TransactionGroup.Confirmed,
-      address: ProjectJournalResolver(NetworkType.TEST_NET),
+      address: ProjectJournalResolver(),
       pageNumber: 1,
       pageSize: 100,
       order: Order.Asc
