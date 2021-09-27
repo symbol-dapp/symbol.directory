@@ -62,6 +62,9 @@ export default class Project {
   }
 
   public addReview (review: Review) {
+    if (this.state.reviews.some((rev: Review) => rev.state.content === review.state.content && rev.state.rate === review.state.rate)) {
+      return;
+    }
     this.state.reviews.push(review);
     this.state.rating = this.state.reviews.map(review => review.state.rate)
       .reduce((prev: number, next: number) => prev + next, 0) / this.state.reviews.length;
