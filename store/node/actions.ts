@@ -13,10 +13,15 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-export const actions = {
-  nuxtClientInit ({ dispatch }) {
-    console.log('From nuxtClientInit');
-    dispatch('projects/fullSyncProjects');
-    dispatch('node/initNodeInfo');
+import { NodeInfo } from 'symbol-sdk';
+import { Commit } from 'vuex';
+import { HTTPRepositoryFactory } from '~/services/RepositoryFacade';
+const nodeRepository = HTTPRepositoryFactory.createNodeRepository();
+
+export default {
+  initNodeInfo ({ commit }: { commit: Commit }) {
+    nodeRepository.getNodeInfo().subscribe((nodeInfo: NodeInfo) => {
+      commit('setNodeInfo', nodeInfo);
+    });
   }
 };

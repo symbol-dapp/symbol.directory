@@ -119,7 +119,7 @@ export default Vue.extend({
       const qrCode = QRCodeGenerator.createTransactionRequest(
         transaction,
         NetworkType.TEST_NET,
-        '3B5E1FA6445653C971A50687E75E6D09FB30481055E3990C84B25E9222DC1155' // network/node
+        this.$store.state.node.nodeInfo.networkGenerationHashSeed // network/node
       );
       qrCode
         .toBase64()
