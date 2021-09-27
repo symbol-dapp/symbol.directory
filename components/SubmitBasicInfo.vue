@@ -83,7 +83,7 @@
                 <option disabled value="select-type">
                   Select Type
                 </option>
-                <option value="DAPP">
+                <option value="Dapp">
                   Dapp
                 </option>
                 <option value="DeFi">
@@ -91,6 +91,9 @@
                 </option>
                 <option value="NFT">
                   NFT
+                </option>
+                <option value="Node">
+                  Node
                 </option>
                 <option value="Protocol">
                   Protocol

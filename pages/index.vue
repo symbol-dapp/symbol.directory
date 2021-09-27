@@ -144,7 +144,7 @@ export default Vue.extend({
         .filter((project: Project) => this.selectedType === '' || project.state.type.toLowerCase() === this.selectedType.toLowerCase());
     },
     types () {
-      return ['Dapp', 'DeFi', 'NFT', 'Protocol', 'Education', 'Tools', 'Wallet', 'Team'];
+      return ['Dapp', 'DeFi', 'NFT', 'Node', 'Protocol', 'Education', 'Tools', 'Wallet', 'Team'];
     }
   },
   mounted () {
