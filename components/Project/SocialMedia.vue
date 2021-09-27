@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="flex">
     <div v-for="social in socialMediaNetworks" :key="social">
       <div v-if="socialMedia[social]" class="pr-3 flex items-center">
-        <a :href="socialmedia[social]" target="__blank">
+        <a :href="socialMedia[social]" target="__blank">
           <img :src="`/images/${social}.svg`" width="20" height="20">
         </a>
       </div>
