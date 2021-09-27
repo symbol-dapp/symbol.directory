@@ -86,6 +86,7 @@ export default Vue.extend({
         this.listening = false;
         this.confirmed = true;
         this.onConfirmed(transaction);
+        listener.close();
       });
     });
   }

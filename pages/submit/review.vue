@@ -132,6 +132,7 @@ export default Vue.extend({
           this.listening = false;
           this.confirmed = true;
           this.$store.dispatch('projects/addProject', transaction);
+          listener.close();
         });
       });
     },

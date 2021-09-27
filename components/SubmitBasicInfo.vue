@@ -84,7 +84,7 @@
                   Select Type
                 </option>
                 <option value="DAPP">
-                  DAPP
+                  Dapp
                 </option>
                 <option value="DeFi">
                   DeFi

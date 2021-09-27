@@ -8,6 +8,15 @@
       </div>
     </header>
     <div class="flex flex-col">
+      <div class="flex justify-center mb-4">
+        <button
+          v-for="type in types"
+          :key="type"
+          :class="[selectedType === type ? 'bg-indigo-600 hover:bg-indigo-700 text-white' : 'bg-white hover:bg-gray-50', 'mx-2 inline-flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500']"
+          @click="filterByType(type)" >
+          {{ type }}
+        </button>
+      </div>
       <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div
@@ -124,13 +133,25 @@ import Project from '~/models/project/Project';
 export default Vue.extend({
   data () {
     return {
-      searchText: ''
+      searchText: '',
+      selectedType: ''
     };
   },
   computed: {
     projects () {
       if (this.searchText === '') {
         return this.$store.state.projects.projects;
+      }
+      if (this.selectedType !== '') {
+        return this.$store.state.projects.projects.filter((project: Project) => {
+          if (
+            project.state.type
+              .toLowerCase() === this.selectedType.toLowerCase()
+          ) {
+            return true;
+          }
+          return false;
+        });
       }
       return this.$store.state.projects.projects.filter((project: Project) => {
         if (
@@ -142,6 +163,9 @@ export default Vue.extend({
         }
         return false;
       });
+    },
+    types () {
+      return ['Dapp', 'DeFi', 'NFT', 'Protocol', 'Education', 'Tools', 'Wallet', 'Team'];
     }
   },
   mounted () {
@@ -152,6 +176,9 @@ export default Vue.extend({
   methods: {
     seeProject (name: string) {
       this.$router.push(`/project/${name}`);
+    },
+    filterByType (type: string) {
+      this.selectedType = this.selectedType === type ? '' : type;
     }
   }
 });
