@@ -65,5 +65,9 @@ export default {
     id: 'UA-83164077-10'
   },
 
-  i18n: {}
+  i18n: {},
+
+  env: {
+    PRODUCTION: process.env.PRODUCTION
+  }
 };
