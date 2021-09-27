@@ -2,7 +2,7 @@
   <main>
     <!-- Page header -->
     <div
-      class="max-w-3xl mx-auto md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl sm:px-0 px-6"
+      class="max-w-3xl mx-auto md:flex md:items-start md:justify-between md:space-x-5 lg:max-w-7xl sm:px-0 px-6"
     >
       <div class="flex items-center space-x-5">
         <div>
@@ -12,14 +12,15 @@
           <p class="text-sm font-medium text-gray-500">
             {{ projectState.shortDescription }}
           </p>
-          <div v-if="showRating && projectState.rating !== undefined" class="flex">
-            <div class="flex items-center mt-4">
+          <div class="flex mt-4">
+            <div v-if="showRating && projectState.rating !== undefined" class="flex items-center mr-4">
               <ul class="flex justify-center">
                 <li v-for="rating in [1, 2, 3, 4, 5]" :key="rating">
                   <i :class="[projectState.rating >= rating ? 'fas' : 'far', 'fa-star fa-sm text-yellow-500 mr-1']" @click="reviewAs(rating)" />
                 </li>
               </ul>
             </div>
+            <ProjectSocialMedia :social-media="projectState.socialMedia" />
           </div>
         </div>
       </div>
