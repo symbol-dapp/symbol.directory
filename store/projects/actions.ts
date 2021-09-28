@@ -82,16 +82,24 @@ export default {
         }
       }, err => console.error(err));
   },
-  addProject (_: any, transaction: Transaction) {
-    commandDispatcher.dispatch(transaction);
+  addProject ({ dispatch }: { dispatch: Dispatch }, transaction: Transaction) {
+    if (commandDispatcher.dispatch(transaction)) {
+      dispatch('metrics/collectMetric', transaction, { root: true });
+    }
   },
-  updateSocialMedia (_: any, transaction: Transaction) {
-    commandDispatcher.dispatch(transaction);
+  updateSocialMedia ({ dispatch }: { dispatch: Dispatch }, transaction: Transaction) {
+    if (commandDispatcher.dispatch(transaction)) {
+      dispatch('metrics/collectMetric', transaction, { root: true });
+    }
   },
-  addReview (_: any, transaction: Transaction) {
-    commandDispatcher.dispatch(transaction);
+  addReview ({ dispatch }: { dispatch: Dispatch }, transaction: Transaction) {
+    if (commandDispatcher.dispatch(transaction)) {
+      dispatch('metrics/collectMetric', transaction, { root: true });
+    }
   },
-  removeProject (_: any, transaction: Transaction) {
-    commandDispatcher.dispatch(transaction);
+  removeProject ({ dispatch }: { dispatch: Dispatch }, transaction: Transaction) {
+    if (commandDispatcher.dispatch(transaction)) {
+      dispatch('metrics/collectMetric', transaction, { root: true });
+    }
   }
 };
