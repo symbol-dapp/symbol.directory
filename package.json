@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
+    "dev:prod_env": "PRODUCTION=true yarn dev",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -17,7 +18,7 @@
     "@headlessui/vue": "^1.2.0",
     "@heroicons/vue": "^1.0.1",
     "@nuxtjs/google-analytics": "^2.4.0",
-    "@symbol-dapp/core": "^0.1.1",
+    "@symbol-dapp/core": "^0.1.2",
     "@tailwindcss/forms": "^0.2.1",
     "core-js": "^3.10.1",
     "nuxt": "^2.15.4",
