@@ -15,7 +15,7 @@
 import { CommandDispatcher } from '@symbol-dapp/core';
 import { RawCommand } from '@symbol-dapp/core/dist/lib/RawCommand';
 import { TransactionSearchCriteria, TransactionGroup, Order, Transaction, TransactionType, Page } from 'symbol-sdk';
-import { Commit } from 'vuex';
+import { Commit, Dispatch } from 'vuex';
 import { of } from 'rxjs';
 import { concatMap } from 'rxjs/operators';
 import { CreateProjectCommand } from '~/models/project/CreateProjectCommand';
@@ -44,7 +44,7 @@ const removeProjectCommandHandler = (commit: Commit) => (command: RawCommand<str
 };
 
 export default {
-  fullSyncProjects ({ commit }: { commit: Commit }) {
+  fullSyncProjects ({ commit, dispatch }: { commit: Commit, dispatch: Dispatch }) {
     commit('cleanProjects');
     commandDispatcher.register(CreateProjectCommand.TYPE, createProjectCommandHandler(commit));
     commandDispatcher.register(PublishReviewCommand.TYPE, createPublishReviewCommandHandler(commit));
@@ -70,7 +70,11 @@ export default {
           }
         })
       )
-      .subscribe((transaction: Transaction) => commandDispatcher.dispatch(transaction), err => console.error(err));
+      .subscribe((transaction: Transaction) => {
+        if (commandDispatcher.dispatch(transaction)) {
+          commit('metrics/collectTransactionMetrics', transaction, { root: true });
+        }
+      }, err => console.error(err));
   },
   addProject (_: any, transaction: Transaction) {
     commandDispatcher.dispatch(transaction);
