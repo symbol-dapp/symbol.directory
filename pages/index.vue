@@ -86,6 +86,20 @@
                   >
                     Description
                   </th>
+                  <th
+                    scope="col"
+                    class="
+                      px-6
+                      py-3
+                      text-left text-xs
+                      font-medium
+                      text-gray-500
+                      uppercase
+                      tracking-wider
+                    "
+                  >
+                    Rating
+                  </th>
                 </tr>
               </thead>
               <tbody class="bg-white divide-y divide-gray-200">
@@ -115,6 +129,16 @@
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     {{ project.state.shortDescription }}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div v-if="project.state.rating !== undefined" class="flex items-center mr-4">
+                      <ul class="flex justify-center">
+                        <li v-for="rating in [1, 2, 3, 4, 5]" :key="rating">
+                          <i :class="[project.state.rating >= rating ? 'fas' : 'far', 'fa-star fa-sm text-yellow-500 mr-1']" @click="reviewAs(rating)" />
+                        </li>
+                      </ul>
+                    </div>
+                    <span v-if="project.state.rating === undefined">Not rated yet</span>
                   </td>
                 </tr>
               </tbody>
