@@ -13,11 +13,11 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { Transaction } from 'symbol-sdk';
+import { TransactionMetric } from '~/models/metrics/TransactionMetrics';
 
 export default {
-  collectTransactionMetrics (state: any, transaction: Transaction) {
+  collectTransactionMetrics (state: any, metric: TransactionMetric) {
     state.transactionsProcessed += 1;
-    state.totalFees += transaction.maxFee.compact() / 1000000;
+    state.totalFees += metric.fee;
   }
 };

@@ -72,7 +72,7 @@ export default {
       )
       .subscribe((transaction: Transaction) => {
         if (commandDispatcher.dispatch(transaction)) {
-          commit('metrics/collectTransactionMetrics', transaction, { root: true });
+          dispatch('metrics/collectMetric', transaction, { root: true });
         }
       }, err => console.error(err));
   },
