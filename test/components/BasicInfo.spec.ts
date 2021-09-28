@@ -60,7 +60,7 @@ describe('BasicInfo', () => {
 
     await fireEvent.update(nameInput, 'symbol.directory');
     await fireEvent.update(websiteInput, 'https://symbol.directory');
-    await fireEvent.update(typeInput, 'DAPP');
+    await fireEvent.update(typeInput, 'Dapp');
     await fireEvent.update(categoryInput, 'marketplace');
     await fireEvent.update(shortDescriptionInput, 'List all Symbol Projects');
     await fireEvent.update(
@@ -72,7 +72,7 @@ describe('BasicInfo', () => {
     expect(emitted().basicInfo[0][0]).toStrictEqual({
       name: 'symbol.directory',
       website: 'https://symbol.directory',
-      type: 'DAPP',
+      type: 'Dapp',
       category: 'marketplace',
       shortDescription: 'List all Symbol Projects',
       longDescription:

@@ -41,4 +41,8 @@ describe('Project', () => {
     expect(project).toBeDefined();
     expect(project.owner).toBe(ownerAddress.address);
   });
+
+  it('allow', () => {
+    
+  })
 });

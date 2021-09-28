@@ -15,9 +15,11 @@
 
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 import Vuex, { Store } from 'vuex';
+import { enableFetchMocks } from 'jest-fetch-mock';
 import Display from '@/components/Project/Display.vue';
 import { ProjectState } from '~/models/project/Project';
 import Review from '~/pages/submit/review.vue';
+
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
@@ -27,6 +29,7 @@ describe('submit page', () => {
   let store: Store<any>;
 
   beforeEach(() => {
+    enableFetchMocks();
     const projectState: ProjectState = {
       name: 'Symbol Dapp',
       category: 'Framework',

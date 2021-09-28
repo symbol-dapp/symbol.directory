@@ -1,5 +1,6 @@
 import Project from '~/models/project/Project';
 import RemoveProjectCommand from '~/models/project/RemoveProjectCommand';
+import { UpdateSocialCommand } from '~/models/project/UpdateSocialMediaCommand';
 import { Review } from '~/models/review/Review';
 
 export default {
@@ -21,5 +22,9 @@ export default {
     if (project.owner.equals(removeProjectCommand.signer)) {
       state.projects = state.projects.filter((project: Project) => project.state.name !== removeProjectCommand.id);
     }
+  },
+  updateSocialMedia (state: any, command: UpdateSocialCommand) {
+    const project = state.projects.find((project: Project) => project.state.name === command.id);
+    project.updateSocialMedia(command.data);
   }
 };

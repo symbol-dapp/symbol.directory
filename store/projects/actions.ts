@@ -19,12 +19,13 @@ import { Commit, Dispatch } from 'vuex';
 import { of } from 'rxjs';
 import { concatMap } from 'rxjs/operators';
 import { CreateProjectCommand } from '~/models/project/CreateProjectCommand';
-import { ProjectState } from '~/models/project/Project';
+import { ProjectState, SocialMedia } from '~/models/project/Project';
 import { ProjectJournalResolver } from '~/models/project/ProjectJournalResolver';
 import RemoveProjectCommand from '~/models/project/RemoveProjectCommand';
 import { PublishReviewCommand } from '~/models/review/PublishReviewCommand';
 import { ReviewState } from '~/models/review/Review';
 import { HTTPRepositoryFactory } from '~/services/RepositoryFacade';
+import { UpdateSocialCommand } from '~/models/project/UpdateSocialMediaCommand';
 const transactionHttp = HTTPRepositoryFactory.createTransactionRepository();
 
 const commandDispatcher = new CommandDispatcher();
@@ -34,21 +35,26 @@ const createProjectCommandHandler = (commit: Commit) => (command: RawCommand<Pro
   commit('addProject', createProjectCommand.create());
 };
 
-const createPublishReviewCommandHandler = (commit: Commit) => (command: RawCommand<ReviewState>) => {
-  const publishReviewCommand = new PublishReviewCommand(command.id, command.data, command.signer);
-  commit('addReview', { id: command.id, review: publishReviewCommand.create() });
+const updateSocialCommandHandler = (commit: Commit) => (command: RawCommand<SocialMedia>) => {
+  commit('updateSocialMedia', new UpdateSocialCommand(command.id, command.data));
 };
 
 const removeProjectCommandHandler = (commit: Commit) => (command: RawCommand<string>) => {
   commit('removeProject', new RemoveProjectCommand(command.id, command.signer));
 };
 
+const createPublishReviewCommandHandler = (commit: Commit) => (command: RawCommand<ReviewState>) => {
+  const publishReviewCommand = new PublishReviewCommand(command.id, command.data, command.signer);
+  commit('addReview', { id: command.id, review: publishReviewCommand.create() });
+};
+
 export default {
   fullSyncProjects ({ commit, dispatch }: { commit: Commit, dispatch: Dispatch }) {
     commit('cleanProjects');
     commandDispatcher.register(CreateProjectCommand.TYPE, createProjectCommandHandler(commit));
-    commandDispatcher.register(PublishReviewCommand.TYPE, createPublishReviewCommandHandler(commit));
     commandDispatcher.register(RemoveProjectCommand.TYPE, removeProjectCommandHandler(commit));
+    commandDispatcher.register(UpdateSocialCommand.TYPE, updateSocialCommandHandler(commit));
+    commandDispatcher.register(PublishReviewCommand.TYPE, createPublishReviewCommandHandler(commit));
 
     const searchCriteria: TransactionSearchCriteria = {
       group: TransactionGroup.Confirmed,

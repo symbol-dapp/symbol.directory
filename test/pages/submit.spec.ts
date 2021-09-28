@@ -64,7 +64,7 @@ describe('submit page', () => {
     const basicInfo = {
       name: 'symbol.directory',
       website: 'https://symbol.directory',
-      type: 'DAPP',
+      type: 'Dapp',
       category: 'marketplace',
       shortDescription: 'List all Symbol Projects',
       longDescription:
