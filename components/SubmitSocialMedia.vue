@@ -133,6 +133,15 @@ export default Vue.extend({
       facebook: ''
     };
   },
+  created () {
+    if (this.$store !== undefined && Object.keys(this.$store.state.submit.socialMedia).length !== 0) {
+      this.github = this.$store.state.submit.socialMedia.github;
+      this.twitter = this.$store.state.submit.socialMedia.twitter;
+      this.telegram = this.$store.state.submit.socialMedia.telegram;
+      this.reddit = this.$store.state.submit.socialMedia.reddit;
+      this.facebook = this.$store.state.submit.socialMedia.facebook;
+    }
+  },
   methods: {
     change () {
       this.$emit('socialMedia', this.$data);

@@ -85,6 +85,9 @@ export default {
   addProject (_: any, transaction: Transaction) {
     commandDispatcher.dispatch(transaction);
   },
+  updateSocialMedia (_: any, transaction: Transaction) {
+    commandDispatcher.dispatch(transaction);
+  },
   addReview (_: any, transaction: Transaction) {
     commandDispatcher.dispatch(transaction);
   },
