@@ -14,7 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import { CommandDispatcher } from '@symbol-dapp/core';
 import { RawCommand } from '@symbol-dapp/core/dist/lib/RawCommand';
-import { TransactionSearchCriteria, TransactionGroup, NetworkType, Order, Transaction } from 'symbol-sdk';
+import { TransactionSearchCriteria, TransactionGroup, NetworkType, Order, Transaction, TransactionType } from 'symbol-sdk';
 import { Commit } from 'vuex';
 import { CreateProjectCommand } from '~/models/project/CreateProjectCommand';
 import { ProjectState } from '~/models/project/Project';
@@ -57,7 +57,15 @@ export default {
     };
     transactionHttp.search(searchCriteria).subscribe(
       (page) => {
-        page.data.forEach(transaction => commandDispatcher.dispatch(transaction));
+        page.data.forEach((transaction: Transaction) => {
+          if (transaction.type === TransactionType.AGGREGATE_BONDED || transaction.type === TransactionType.AGGREGATE_COMPLETE) {
+            transactionHttp
+              .getTransaction(transaction.transactionInfo?.hash!, TransactionGroup.Confirmed)
+              .subscribe(_ => commandDispatcher.dispatch(_));
+          } else {
+            commandDispatcher.dispatch(transaction);
+          }
+        });
       },
       err => console.error(err)
     );
