@@ -14,8 +14,10 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import { CommandDispatcher } from '@symbol-dapp/core';
 import { RawCommand } from '@symbol-dapp/core/dist/lib/RawCommand';
-import { TransactionSearchCriteria, TransactionGroup, NetworkType, Order, Transaction, TransactionType } from 'symbol-sdk';
+import { TransactionSearchCriteria, TransactionGroup, Order, Transaction, TransactionType, Page } from 'symbol-sdk';
 import { Commit } from 'vuex';
+import { of } from 'rxjs';
+import { concatMap } from 'rxjs/operators';
 import { CreateProjectCommand } from '~/models/project/CreateProjectCommand';
 import { ProjectState } from '~/models/project/Project';
 import { ProjectJournalResolver } from '~/models/project/ProjectJournalResolver';
@@ -55,20 +57,20 @@ export default {
       pageSize: 100,
       order: Order.Asc
     };
-    transactionHttp.search(searchCriteria).subscribe(
-      (page) => {
-        page.data.forEach((transaction: Transaction) => {
+    transactionHttp
+      .search(searchCriteria)
+      .pipe(
+        concatMap((page: Page<Transaction>) => page.data),
+        concatMap((transaction: Transaction) => {
           if (transaction.type === TransactionType.AGGREGATE_BONDED || transaction.type === TransactionType.AGGREGATE_COMPLETE) {
-            transactionHttp
-              .getTransaction(transaction.transactionInfo?.hash!, TransactionGroup.Confirmed)
-              .subscribe(_ => commandDispatcher.dispatch(_));
+            return transactionHttp
+              .getTransaction(transaction.transactionInfo?.hash!, TransactionGroup.Confirmed);
           } else {
-            commandDispatcher.dispatch(transaction);
+            return of(transaction);
           }
-        });
-      },
-      err => console.error(err)
-    );
+        })
+      )
+      .subscribe((transaction: Transaction) => commandDispatcher.dispatch(transaction), err => console.error(err));
   },
   addProject (_: any, transaction: Transaction) {
     commandDispatcher.dispatch(transaction);
