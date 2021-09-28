@@ -20,7 +20,6 @@ import Display from '@/components/Project/Display.vue';
 import { ProjectState } from '~/models/project/Project';
 import Review from '~/pages/submit/review.vue';
 
-
 const localVue = createLocalVue();
 localVue.use(Vuex);
 

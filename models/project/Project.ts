@@ -69,4 +69,8 @@ export default class Project {
     this.state.rating = this.state.reviews.map(review => review.state.rate)
       .reduce((prev: number, next: number) => prev + next, 0) / this.state.reviews.length;
   }
+
+  public updateSocialMedia (socialMedia: SocialMedia) {
+    this.state.socialMedia = socialMedia;
+  }
 }

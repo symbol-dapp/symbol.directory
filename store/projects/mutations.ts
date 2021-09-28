@@ -24,7 +24,7 @@ export default {
     }
   },
   updateSocialMedia (state: any, command: UpdateSocialCommand) {
-    const project = state.projects.find((project: Project) => project.state.name === command.id);
+    const project: Project = state.projects.find((project: Project) => project.state.name === command.id);
     project.updateSocialMedia(command.data);
   }
 };

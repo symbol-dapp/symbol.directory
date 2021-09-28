@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import Project, { ProjectState } from '../../models/project/Project';
+import Project, { ProjectState, SocialMedia } from '../../models/project/Project';
 import { ownerAddress } from '../objectmothers/AccountObjectMother';
 
 describe('Project', () => {
@@ -42,7 +42,35 @@ describe('Project', () => {
     expect(project.owner).toBe(ownerAddress.address);
   });
 
-  it('allow', () => {
-    
-  })
+  it('allows changing the socialMedia', () => {
+    const projectState: ProjectState = {
+      name: 'Symbol Dapp',
+      category: 'Framework',
+      type: 'Dapp',
+      shortDescription: 'Symbol Dapp Framework',
+      longDescription: 'Opinionated Symbol Dapp Framework',
+      website: 'https://symboldapp.com',
+      socialMedia: {
+        twitter: undefined,
+        github: undefined,
+        facebook: undefined,
+        reddit: undefined,
+        telegram: undefined
+      },
+      rating: undefined,
+      reviews: []
+    };
+    const project = Project.create(projectState, ownerAddress.address);
+    const socialMedia: SocialMedia = {
+      twitter: 'https://twiter.com/symboldapp',
+      github: undefined,
+      facebook: undefined,
+      reddit: undefined,
+      telegram: undefined
+    };
+
+    project.updateSocialMedia(socialMedia);
+
+    expect(project.state.socialMedia).toStrictEqual(socialMedia);
+  });
 });
