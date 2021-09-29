@@ -21,6 +21,14 @@
           {{ fees.toString().substring(0, 6) }} XYM
         </dd>
       </div>
+      <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+        <dt class="text-sm font-medium text-gray-500 truncate">
+          Total Users
+        </dt>
+        <dd class="mt-1 text-3xl font-semibold text-gray-900">
+          {{ userMetrics.size }}
+        </dd>
+      </div>
     </dl>
     <h3 class="text-lg leading-6 font-medium text-gray-900">
       Top Transactioners
