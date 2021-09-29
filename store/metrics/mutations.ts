@@ -19,5 +19,12 @@ export default {
   collectTransactionMetrics (state: any, metric: TransactionMetric) {
     state.transactionsProcessed += 1;
     state.totalFees += metric.fee;
+    console.log('metric.signer', metric.signer);
+    console.log('state.users', state.users);
+    if (state.users.has(metric.signer)) {
+      state.users.set(metric.signer, state.users.get(metric.signer) + 1);
+    } else {
+      state.users.set(metric.signer, 1);
+    }
   }
 };

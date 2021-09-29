@@ -15,5 +15,6 @@
 
 export default () => ({
   transactionsProcessed: 0,
-  totalFees: 0
+  totalFees: 0,
+  users: new Map<string, number>()
 });
