@@ -43,7 +43,11 @@
               <tbody class="bg-white divide-y divide-gray-200">
                 <tr v-for="[key, value] in userMetrics" :key="key">
                   <td class="px-6 py-4 font-mono whitespace-nowrap text-sm font-medium text-gray-900">
-                    {{ key }}
+                    <a
+                      :href="`http://explorer.symbolblockchain.io/accounts/${key}`"
+                      target="_blank"
+                      class="hover:text-indigo-500"
+                    >{{ key }}</a>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     {{ value }}
