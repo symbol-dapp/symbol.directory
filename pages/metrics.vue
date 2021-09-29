@@ -26,7 +26,7 @@
           Total Users
         </dt>
         <dd class="mt-1 text-3xl font-semibold text-gray-900">
-          {{ userMetrics.size }}
+          {{ userMetrics.length }}
         </dd>
       </div>
     </dl>
@@ -49,16 +49,16 @@
                 </tr>
               </thead>
               <tbody class="bg-white divide-y divide-gray-200">
-                <tr v-for="[key, value] in userMetrics" :key="key">
+                <tr v-for="user in userMetrics" :key="user.address">
                   <td class="px-6 py-4 font-mono whitespace-nowrap text-sm font-medium text-gray-900">
                     <a
-                      :href="`http://explorer.symbolblockchain.io/accounts/${key}`"
+                      :href="`http://explorer.symbolblockchain.io/accounts/${user.address}`"
                       target="_blank"
                       class="hover:text-indigo-500"
-                    >{{ key }}</a>
+                    >{{ user.address }}</a>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {{ value }}
+                    {{ user.transactions }}
                   </td>
                 </tr>
               </tbody>
@@ -71,16 +71,15 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex';
+import { mapState } from 'vuex';
+import _ from 'lodash';
 
 export default {
   computed: {
     ...mapState({
       totalTransactions: state => state.metrics.transactionsProcessed,
-      fees: state => state.metrics.totalFees
-    }),
-    ...mapGetters({
-      userMetrics: 'metrics/userMetrics'
+      fees: state => state.metrics.totalFees,
+      userMetrics: state => _.orderBy(state.metrics.users, 'transactions', 'desc')
     })
   }
 };

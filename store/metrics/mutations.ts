@@ -12,17 +12,18 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
+import { UserMetrics } from './getters';
 import { TransactionMetric } from '~/models/metrics/TransactionMetrics';
 
 export default {
   collectTransactionMetrics (state: any, metric: TransactionMetric) {
     state.transactionsProcessed += 1;
     state.totalFees += metric.fee;
-    if (state.users.has(metric.signer)) {
-      state.users.set(metric.signer, state.users.get(metric.signer) + 1);
+    const user = state.users.find((user: UserMetrics) => user.address === metric.signer);
+    if (user) {
+      user.transactions += 1;
     } else {
-      state.users.set(metric.signer, 1);
+      state.users.push({ address: metric.signer, transactions: 1 });
     }
   }
 };
