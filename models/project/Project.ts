@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { Address } from 'symbol-sdk';
+import { PublicAccount } from 'symbol-sdk';
 import { Review } from '../review/Review';
 
 export interface SocialMedia {
@@ -55,9 +55,9 @@ const PROJECT_STATE_DEFAULTS = () => ({
 });
 
 export default class Project {
-  constructor (public readonly state: ProjectState, public readonly owner: Address) {}
+  constructor (public readonly state: ProjectState, public readonly owner: PublicAccount) {}
 
-  public static create (projectState: ProjectState, signer: Address): Project {
+  public static create (projectState: ProjectState, signer: PublicAccount): Project {
     return new Project(Object.assign({}, PROJECT_STATE_DEFAULTS(), projectState), signer);
   }
 

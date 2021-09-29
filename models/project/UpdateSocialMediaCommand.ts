@@ -14,7 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { PlainCommand } from '@symbol-dapp/core';
-import { Address } from 'symbol-sdk';
+import { PublicAccount } from 'symbol-sdk';
 import { SocialMedia } from './Project';
 import { ProjectJournalResolver } from './ProjectJournalResolver';
 
@@ -22,7 +22,7 @@ export class UpdateSocialCommand extends PlainCommand<SocialMedia> {
     public static TYPE = 'symboldirectory.UpdateSocial';
     public static VERSION = 1;
 
-    constructor (projectName: string, socialMedia: SocialMedia, signer?: Address) {
+    constructor (projectName: string, socialMedia: SocialMedia, signer?: PublicAccount) {
       super(projectName, ProjectJournalResolver(), UpdateSocialCommand.TYPE, UpdateSocialCommand.VERSION, socialMedia, signer);
     }
 

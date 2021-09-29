@@ -14,14 +14,14 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { PlainCommand } from '@symbol-dapp/core';
-import { Address } from 'symbol-sdk';
+import { PublicAccount } from 'symbol-sdk';
 import { ProjectJournalResolver } from './ProjectJournalResolver';
 
 export default class RemoveProjectCommand extends PlainCommand<string> {
     public static TYPE = 'RemoveProject';
     public static VERSION = 1;
 
-    constructor (projectId: string, signer?: Address) {
+    constructor (projectId: string, signer?: PublicAccount) {
       super(projectId, ProjectJournalResolver(), RemoveProjectCommand.TYPE, RemoveProjectCommand.VERSION, projectId, signer);
     }
 

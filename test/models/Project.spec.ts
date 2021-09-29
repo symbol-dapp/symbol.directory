@@ -36,10 +36,10 @@ describe('Project', () => {
       reviews: []
     };
 
-    const project = Project.create(projectState, ownerAddress.address);
+    const project = Project.create(projectState, ownerAddress.publicAccount);
 
     expect(project).toBeDefined();
-    expect(project.owner).toBe(ownerAddress.address);
+    expect(project.owner).toStrictEqual(ownerAddress.publicAccount);
   });
 
   it('allows changing the socialMedia', () => {
@@ -60,7 +60,7 @@ describe('Project', () => {
       rating: undefined,
       reviews: []
     };
-    const project = Project.create(projectState, ownerAddress.address);
+    const project = Project.create(projectState, ownerAddress.publicAccount);
     const socialMedia: SocialMedia = {
       twitter: 'https://twiter.com/symboldapp',
       github: undefined,

@@ -18,7 +18,7 @@
     "@headlessui/vue": "^1.2.0",
     "@heroicons/vue": "^1.0.1",
     "@nuxtjs/google-analytics": "^2.4.0",
-    "@symbol-dapp/core": "^0.1.2",
+    "@symbol-dapp/core": "^0.2.0",
     "@tailwindcss/forms": "^0.2.1",
     "core-js": "^3.10.1",
     "lodash": "^4.17.21",
@@ -26,7 +26,7 @@
     "nuxt-i18n": "^6.25.0",
     "pouchdb-browser": "^7.2.2",
     "symbol-qr-library": "0.14.1-alpha-202103081047",
-    "symbol-sdk": "^1.0.0"
+    "symbol-sdk": "^1.0.1"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.4",

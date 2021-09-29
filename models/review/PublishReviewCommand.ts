@@ -1,5 +1,5 @@
 import { PlainCommand } from '@symbol-dapp/core';
-import { Address } from 'symbol-sdk';
+import { PublicAccount } from 'symbol-sdk';
 import { ProjectJournalResolver } from '../project/ProjectJournalResolver';
 import { Review, ReviewState } from './Review';
 
@@ -7,7 +7,7 @@ export class PublishReviewCommand extends PlainCommand<ReviewState> {
   public static TYPE = 'PublishReview';
   public static VERSION = 1;
 
-  constructor (projectId: string, projectState: ReviewState, signer?: Address) {
+  constructor (projectId: string, projectState: ReviewState, signer?: PublicAccount) {
     super(projectId, ProjectJournalResolver(), PublishReviewCommand.TYPE, PublishReviewCommand.VERSION, projectState, signer);
   }
 

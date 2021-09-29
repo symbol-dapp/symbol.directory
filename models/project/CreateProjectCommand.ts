@@ -14,7 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { PlainCommand } from '@symbol-dapp/core';
-import { Address } from 'symbol-sdk';
+import { PublicAccount } from 'symbol-sdk';
 import Project, { ProjectState } from './Project';
 import { ProjectJournalResolver } from './ProjectJournalResolver';
 
@@ -22,7 +22,7 @@ export class CreateProjectCommand extends PlainCommand<ProjectState> {
     public static TYPE = 'CreateProject';
     public static VERSION = 1;
 
-    constructor (projectState: ProjectState, signer?: Address) {
+    constructor (projectState: ProjectState, signer?: PublicAccount) {
       super(projectState.name, ProjectJournalResolver(), CreateProjectCommand.TYPE, CreateProjectCommand.VERSION, projectState, signer);
     }
 

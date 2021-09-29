@@ -1,4 +1,4 @@
-import { Address } from 'symbol-sdk';
+import { PublicAccount } from 'symbol-sdk';
 
 export interface ReviewState {
   rate: number,
@@ -8,6 +8,6 @@ export interface ReviewState {
 export class Review {
   constructor (
     public readonly state: ReviewState,
-    public readonly author: Address) {
+    public readonly author: PublicAccount) {
   }
 }
