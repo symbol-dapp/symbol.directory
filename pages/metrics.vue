@@ -41,12 +41,12 @@
                 </tr>
               </thead>
               <tbody class="bg-white divide-y divide-gray-200">
-                <tr v-for="user in users" :key="user.address">
+                <tr v-for="[key, value] in userMetrics" :key="key">
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    {{ user.address }}
+                    {{ key }}
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {{ user.transactions }}
+                    {{ value }}
                   </td>
                 </tr>
               </tbody>
@@ -59,16 +59,16 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 
 export default {
   computed: {
     ...mapState({
       totalTransactions: state => state.metrics.transactionsProcessed,
-      fees: state => state.metrics.totalFees,
-      users: state => Array.from(state.metrics.users.keys())
-        .map(entry => ({ address: entry, transactions: state.metrics.users.get(entry) }))
-        .sort((first, second) => first.transactions <= second.transactions)
+      fees: state => state.metrics.totalFees
+    }),
+    ...mapGetters({
+      userMetrics: 'metrics/userMetrics'
     })
   }
 };

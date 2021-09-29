@@ -1,4 +1,4 @@
-// Copyright (C) 2021 Aleix Morgadas <aleix@symbol.dapp>
+// Copyright (C) 2021 Aleix Morgadas <aleix@symboldapp.com>
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -13,16 +13,13 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { TransactionMetric } from '~/models/metrics/TransactionMetrics';
+export interface UserMetrics {
+  address: string;
+  transactions: number;
+}
 
 export default {
-  collectTransactionMetrics (state: any, metric: TransactionMetric) {
-    state.transactionsProcessed += 1;
-    state.totalFees += metric.fee;
-    if (state.users.has(metric.signer)) {
-      state.users.set(metric.signer, state.users.get(metric.signer) + 1);
-    } else {
-      state.users.set(metric.signer, 1);
-    }
+  userMetrics: (state: any): UserMetrics[] => {
+    return state.users;
   }
 };
