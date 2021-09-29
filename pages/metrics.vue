@@ -42,7 +42,7 @@
               </thead>
               <tbody class="bg-white divide-y divide-gray-200">
                 <tr v-for="[key, value] in userMetrics" :key="key">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  <td class="px-6 py-4 font-mono whitespace-nowrap text-sm font-medium text-gray-900">
                     {{ key }}
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
