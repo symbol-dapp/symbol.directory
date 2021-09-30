@@ -37,7 +37,9 @@
         </button>
       </div>
     </div>
-    <Announcer :transaction="transaction" :on-confirmed="onConfirmed" :go-to-path="goToPath" call-to-action="Social Media Updated!" />
+    <div ref="announcer">
+      <Announcer :transaction="transaction" :on-confirmed="onConfirmed" :go-to-path="goToPath" call-to-action="Social Media Updated!" />
+    </div>
   </div>
 </template>
 
@@ -85,6 +87,7 @@ export default Vue.extend({
       this.action = 'deleteProject';
       this.goToPath = '/';
       this.callToAction = 'Project Removed';
+      (this.$refs.announcer as HTMLElement).scrollIntoView({ behavior: 'smooth' });
       const command = RemoveProjectCommand.of(
         this.project.state.name
       );
@@ -106,6 +109,7 @@ export default Vue.extend({
         });
     },
     updateSocialMedia () {
+      (this.$refs.announcer as HTMLElement).scrollIntoView({ behavior: 'smooth' });
       this.action = 'updateSocialMedia';
       this.goToPath = `/project/${this.project.state.name}`;
       this.callToAction = 'Social Media updated!';

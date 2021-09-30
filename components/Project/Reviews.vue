@@ -62,7 +62,9 @@
             </button>
           </div>
         </div>
-        <Announcer v-if="transaction !== ''" :transaction="transaction" :on-confirmed="onConfirmed" :go-to-path="undefined" />
+        <div ref="announcer">
+          <Announcer v-if="transaction !== ''" :transaction="transaction" :on-confirmed="onConfirmed" :go-to-path="undefined" />
+        </div>
       </form>
     </div>
   </div>
@@ -99,6 +101,7 @@ export default Vue.extend({
       this.reviewRating = rating;
     },
     publish () {
+      (this.$refs.announcer as HTMLElement).scrollIntoView({ behavior: 'smooth' });
       const command = PublishReviewCommand.of(
         this.projectId,
         {

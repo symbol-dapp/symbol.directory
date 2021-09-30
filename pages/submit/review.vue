@@ -30,7 +30,7 @@
         Let's publish it!
       </button>
     </div>
-    <transition name="fade">
+    <transition ref="announcer" name="fade">
       <div
         v-if="transaction !== ''"
         class="bg-white shadow sm:rounded-lg mt-10"
@@ -105,6 +105,7 @@ export default Vue.extend({
       if (this.transaction !== '') {
         return;
       }
+      (this.$refs.announcer as HTMLElement).scrollIntoView({ behavior: 'smooth' });
       this.listening = true;
       const command = CreateProjectCommand.of(
         this.$store.getters['submit/projectStateForm']
