@@ -36,7 +36,7 @@
       <h2 class="text-xl font-bold text-gray-900">
         Write a review
       </h2>
-      <form v-on:submit.prevent="publish" class="my-5 p-5 space-y-8 divide-y divide-gray-200 bg-white shadow sm:rounded-lg">
+      <form class="my-5 p-5 space-y-8 bg-white shadow sm:rounded-lg" @submit.prevent="publish">
         <div>
           <div class="flex items-center mt-4">
             <ul class="flex justify-center">
