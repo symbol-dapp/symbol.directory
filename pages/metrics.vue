@@ -29,6 +29,22 @@
           {{ userMetrics.length }}
         </dd>
       </div>
+      <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+        <dt class="text-sm font-medium text-gray-500 truncate">
+          Total projects
+        </dt>
+        <dd class="mt-1 text-3xl font-semibold text-gray-900">
+          {{ numProjects }}
+        </dd>
+      </div>
+      <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+        <dt class="text-sm font-medium text-gray-500 truncate">
+          Total reviews
+        </dt>
+        <dd class="mt-1 text-3xl font-semibold text-gray-900">
+          {{ numReviews }}
+        </dd>
+      </div>
     </dl>
     <h3 class="text-lg leading-6 font-medium text-gray-900">
       Top Transactioners
@@ -77,6 +93,8 @@ import _ from 'lodash';
 export default {
   computed: {
     ...mapState({
+      numProjects: state => state.projects.projects.length,
+      numReviews: state => state.projects.projects.map(_ => _.state.reviews.length).reduce((prev, next) => prev + next, 0),
       totalTransactions: state => state.metrics.transactionsProcessed,
       fees: state => state.metrics.totalFees,
       userMetrics: state => _.orderBy(state.metrics.users, 'transactions', 'desc')
