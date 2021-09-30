@@ -30,7 +30,7 @@
         Let's publish it!
       </button>
     </div>
-    <transition ref="announcer" name="fade">
+    <transition name="fade">
       <div
         v-if="transaction !== ''"
         class="bg-white shadow sm:rounded-lg mt-10"
@@ -71,6 +71,7 @@
         </div>
       </div>
     </transition>
+    <div ref="announcer"></div>
   </div>
 </template>
 <script lang="ts">
