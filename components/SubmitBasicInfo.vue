@@ -83,6 +83,9 @@
                 <option disabled value="select-type">
                   Select Type
                 </option>
+                <option value="Application">
+                  Application
+                </option>
                 <option value="Dapp">
                   Dapp
                 </option>
