@@ -45,6 +45,6 @@ describe('index page', () => {
       store
     });
 
-    getByText('Project List (MAIN_NET)');
+    getByText('Project List');
   });
 });
