@@ -42,7 +42,10 @@ describe('index page', () => {
         Logo: true
       },
       localVue,
-      store
+      store,
+      mocks: {
+        $t: () => {}
+      }
     });
   });
 });

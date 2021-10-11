@@ -47,7 +47,14 @@ describe('BasicInfo', () => {
   });
 
   test('emits on data change', async () => {
-    const { getByText, getByTestId, emitted } = render(SubmitBasicInfo, { localVue, store });
+    const { getByText, getByTestId, emitted } = render(SubmitBasicInfo,
+      {
+        localVue,
+        store,
+        mocks: {
+          $t: (t: string) => t === 'submitForm.projectInfo' ? 'Project Information' : ''
+        }
+      });
 
     getByText('Project Information');
 

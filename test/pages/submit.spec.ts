@@ -16,8 +16,8 @@ import { createLocalVue, mount } from '@vue/test-utils';
 import Vuex, { Store } from 'vuex';
 
 import SubmitBasicInfo from '@/components/SubmitBasicInfo.vue';
-import SubmitMosaicInfo from '~/components/SubmitMosaicInfo.vue';
-import SubmitSocialMedia from '~/components/SubmitSocialMedia.vue';
+import SubmitMosaicInfo from '@/components/SubmitMosaicInfo.vue';
+import SubmitSocialMedia from '@/components/SubmitSocialMedia.vue';
 import Submit from '~/pages/submit/index.vue';
 
 const localVue = createLocalVue();
@@ -53,12 +53,16 @@ describe('submit page', () => {
       store,
       localVue,
       stubs: {
-        SubmitBasicInfo,
+        SubmitBasicInfo: {
+          name: 'SubmitBasicInfo',
+          template: '<div />'
+        },
         SubmitMosaicInfo,
         SubmitSocialMedia
       },
       mocks: {
-        $route
+        $route,
+        $t: () => {}
       }
     });
     const basicInfo = {
