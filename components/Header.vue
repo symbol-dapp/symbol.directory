@@ -25,7 +25,7 @@
             class="flex items-center px-6 py-4 md:max-w-3xl md:mx-auto lg:max-w-none lg:mx-0 xl:px-0"
           >
             <div class="w-full">
-              <label for="search" class="sr-only">Search</label>
+              <label for="search" class="sr-only">{{ $t('search') }}</label>
               <div class="relative">
                 <div
                   class="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center"
@@ -50,7 +50,7 @@
                   v-model="searchText"
                   name="search"
                   class="block w-full bg-white border border-gray-300 rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-500 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  placeholder="Search"
+                  :placeholder="$t('search')"
                   type="search"
                   @keyup.enter="search"
                 >
@@ -79,7 +79,7 @@
             to="/submit"
             class="inline-flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500"
           >
-            Submit
+            {{ $t('submit') }}
           </NuxtLink>
         </div>
       </div>

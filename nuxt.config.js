@@ -50,7 +50,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    'nuxt-i18n'
+    '@nuxtjs/i18n'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -65,7 +65,22 @@ export default {
     id: 'UA-83164077-10'
   },
 
-  i18n: {},
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        file: 'en-US.js'
+      }
+    ],
+    lazy: true,
+    langDir: 'lang/',
+    defaultLocale: 'en',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root'
+    }
+  },
 
   env: {
     PRODUCTION: process.env.PRODUCTION

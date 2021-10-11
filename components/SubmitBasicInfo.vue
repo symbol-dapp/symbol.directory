@@ -3,7 +3,7 @@
     <div class="md:col-span-1">
       <div class="px-4 sm:px-0">
         <h3 class="text-lg font-medium leading-6 text-gray-900">
-          Project Information
+          {{ $t('submitForm.projectInfo') }}
         </h3>
       </div>
     </div>
@@ -15,7 +15,7 @@
               <label
                 for="name"
                 class="block text-sm font-medium text-gray-700"
-              >Project Name</label>
+              >{{ $t('name') }}</label>
               <input
                 id="name"
                 v-model="name"
@@ -24,7 +24,7 @@
                 type="text"
                 name="name"
                 autocomplete="project-name"
-                placeholder="Project Name"
+                :placeholder="$t('name')"
                 class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-gray-400"
                 @input="change"
               >
@@ -33,7 +33,7 @@
               <label
                 for="name"
                 class="block text-sm font-medium text-gray-700"
-              >Website</label>
+              >{{ $t('website') }}</label>
               <input
                 id="website"
                 v-model="website"
@@ -42,7 +42,7 @@
                 type="text"
                 name="website"
                 autocomplete="project-website"
-                placeholder="A URL to visit your product's website"
+                :placeholder="$t('submitForm.websitePlaceholder')"
                 class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-gray-400"
                 @input="change"
               >
@@ -51,7 +51,7 @@
               <label
                 for="name"
                 class="block text-sm font-medium text-gray-700"
-              >Short Description</label>
+              >{{ $t('submitForm.shortDescription') }}</label>
               <input
                 id="shortDescription"
                 v-model="shortDescription"
@@ -60,7 +60,7 @@
                 type="text"
                 name="shortDescription"
                 autocomplete="project-description"
-                placeholder="This is to provide an idea of what does your product do."
+                :placeholder="$t('submitForm.shortDescriptionPlaceholder')"
                 class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-gray-400"
                 @input="change"
               >
@@ -69,7 +69,7 @@
               <label
                 for="type"
                 class="block text-sm font-medium text-gray-700"
-              >Type</label>
+              >{{ $t('type') }}</label>
               <select
                 id="type"
                 v-model="type"
@@ -81,40 +81,40 @@
                 @input="change"
               >
                 <option disabled value="select-type">
-                  Select Type
+                  {{ $t('submitForm.selectType') }}
                 </option>
                 <option value="Application">
-                  Application
+                  {{ $t('types.application') }}
                 </option>
                 <option value="Company">
-                  Company
+                  {{ $t('types.company') }}
                 </option>
                 <option value="Dapp">
-                  Dapp
+                  {{ $t('types.dapp') }}
                 </option>
                 <option value="DeFi">
-                  DeFi
+                  {{ $t('types.defi') }}
                 </option>
                 <option value="NFT">
-                  NFT
+                  {{ $t('types.nft') }}
                 </option>
                 <option value="Node">
-                  Node
+                  {{ $t('types.node') }}
                 </option>
                 <option value="Protocol">
-                  Protocol
+                  {{ $t('types.protocol') }}
                 </option>
                 <option value="Education">
-                  Education
+                  {{ $t('types.education') }}
                 </option>
                 <option value="Tools">
-                  Tools
+                  {{ $t('types.tools') }}
                 </option>
                 <option value="Wallet">
-                  Wallet
+                  {{ $t('types.wallet') }}
                 </option>
                 <option value="Team">
-                  Team
+                  {{ $t('types.team') }}
                 </option>
               </select>
             </div>
@@ -122,7 +122,7 @@
               <label
                 for="country"
                 class="block text-sm font-medium text-gray-700"
-              >Category</label>
+              >{{ $t('category') }}</label>
               <select
                 id="category"
                 v-model="category"
@@ -134,46 +134,46 @@
                 @input="change"
               >
                 <option disabled value="select-type">
-                  Select Type
+                  {{ $t('submitForm.selectCategory') }}
                 </option>
                 <option value="media">
-                  Media
+                  {{ $t('categories.media') }}
                 </option>
                 <option value="wallet">
-                  Wallet
+                  {{ $t('categories.wallet') }}
                 </option>
                 <option value="price-tracker">
-                  Price Tracker
+                  {{ $t('categories.priceTracker') }}
                 </option>
                 <option value="job-search">
-                  Job Search
+                  {{ $t('categories.jobSearch') }}
                 </option>
                 <option value="game">
-                  Game
+                  {{ $t('categories.game') }}
                 </option>
                 <option value="gambling">
-                  Gambling
+                  {{ $t('categories.gambling') }}
                 </option>
                 <option value="finance">
-                  Finance
+                  {{ $t('categories.finance') }}
                 </option>
                 <option value="exchange">
-                  Exchange
+                  {{ $t('categories.exchange') }}
                 </option>
                 <option value="social">
-                  Social
+                  {{ $t('categories.social') }}
                 </option>
                 <option value="marketplace">
-                  Marketplace
+                  {{ $t('categories.marketplace') }}
                 </option>
                 <option value="utilities">
-                  Utilities
+                  {{ $t('categories.utilites') }}
                 </option>
                 <option value="others">
-                  Others
+                  {{ $t('categories.others') }}
                 </option>
                 <option value="high-risk">
-                  High Risk
+                  {{ $t('categories.highRisk') }}
                 </option>
               </select>
             </div>
@@ -181,7 +181,7 @@
 
           <div>
             <label for="about" class="block text-sm font-medium text-gray-700">
-              Detail Description
+              {{ $t('submitForm.detailDescription') }}
             </label>
             <div class="mt-1">
               <textarea
@@ -191,7 +191,7 @@
                 name="longDescription"
                 rows="3"
                 class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md placeholder-gray-400"
-                placeholder="A detailed summary will better explain your products to the audiences. Our users will see this in your dedicated product page. "
+                :placeholder="$t('submitForm.detailDescriptionPlaceholder')"
                 @input="change"
               />
             </div>

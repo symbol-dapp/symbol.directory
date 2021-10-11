@@ -8,7 +8,7 @@
       >
         <div class="px-5 py-2">
           <NuxtLink to="/metrics" class="text-base text-gray-500 hover:text-gray-900">
-            Metrics
+            {{ $t('metrics') }}
           </NuxtLink>
         </div>
       </nav>
