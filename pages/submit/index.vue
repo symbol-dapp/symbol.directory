@@ -4,7 +4,7 @@
       <div>
         <div class="text-center">
           <h1 class="text-5xl mb-10">
-            Submit your project
+            Submit
           </h1>
         </div>
         <SubmitBasicInfo @basicInfo="basicInfoChange" />

@@ -1,12 +1,5 @@
 <template>
   <div class="py-4">
-    <header>
-      <div class="max-w-7xl mx-auto mb-5">
-        <h1 class="text-3xl font-bold leading-tight text-gray-900">
-          Project List
-        </h1>
-      </div>
-    </header>
     <div class="flex flex-col">
       <div class="flex flex-wrap md:justify-center mb-4">
         <button

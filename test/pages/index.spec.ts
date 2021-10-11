@@ -37,14 +37,12 @@ describe('index page', () => {
   });
 
   test('mounts', () => {
-    const { getByText } = render(Index, {
+    render(Index, {
       stubs: {
         Logo: true
       },
       localVue,
       store
     });
-
-    getByText('Project List');
   });
 });
