@@ -86,6 +86,9 @@
                 <option value="Application">
                   Application
                 </option>
+                <option value="Company">
+                  Company
+                </option>
                 <option value="Dapp">
                   Dapp
                 </option>
