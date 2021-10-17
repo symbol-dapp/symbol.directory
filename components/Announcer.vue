@@ -6,7 +6,7 @@
     >
       <div class="px-4 py-5 sm:p-6">
         <h3 class="text-lg leading-6 font-medium text-gray-900 text-center">
-          Scan the QR Code in your Symbol Wallet
+          {{ $t('announcer.scan') }}
         </h3>
         <div class="grid grid-cols-2 gap-4">
           <div class="flex flex-col justify-center items-center">
@@ -15,14 +15,14 @@
               href="https://vimeo.com/615368477"
               target="__blank"
               class="inline-flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
-              Announce Transaction Tutorial
+              {{ $t('announcer.tutorial') }}
             </a>
           </div>
           <!-- ... -->
           <div v-if="listening" class="flex justify-center items-center">
             <div>
               <p class="text-md text-gray-800">
-                Waiting the Transaction to be confirmed
+                {{ $t('announcer.waiting') }}
               </p>
               <div class="flex justify-center mt-5">
                 <Spinner />
@@ -31,7 +31,7 @@
           </div>
           <div v-if="confirmed" class="flex flex-col justify-center items-center">
             <p class="text-md text-gray-800 mb-4">
-              Confirmed!
+              {{ $t('announcer.confirmed') }}
             </p>
             <div v-if="goToPath">
               <NuxtLink

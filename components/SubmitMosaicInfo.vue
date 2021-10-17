@@ -4,7 +4,7 @@
       <div class="md:col-span-1">
         <div class="px-4 sm:px-0">
           <h3 class="text-lg font-medium leading-6 text-gray-900">
-            Mosaic Information
+            {{ $t('submitForm.mosaicInfo') }}
           </h3>
           <p class="mt-1 text-sm text-gray-600" />
         </div>
@@ -17,7 +17,7 @@
               <span id="availability-label" class="flex-grow flex flex-col">
                 <span
                   class="text-sm font-medium text-gray-700"
-                >Does this project use a mosaic?</span>
+                >{{ $t('submitForm.hasMosaic') }}</span>
               </span>
               <button
                 data-testId="mosaic"
@@ -46,14 +46,14 @@
                 <label
                   for="mosaicId"
                   class="block text-sm font-medium text-gray-700"
-                >Mosaic ID</label>
+                >{{ $t('submitForm.mosaciD')}}</label>
                 <input
                   id="mosaicId"
                   v-model="mosaicId"
                   data-testId="mosaic-id"
                   type="text"
                   name="mosaicId"
-                  placeholder="Mosaic ID like 2CF403E85507F39E"
+                  :placeholder="$t('submitForm.mosaicIdPlaceholder')"
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   @input="change"
                 >
