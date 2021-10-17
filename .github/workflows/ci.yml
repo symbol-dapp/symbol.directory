@@ -12,6 +12,7 @@ on:
 
 jobs:
   continuous-integration:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@master
@@ -19,7 +20,7 @@ jobs:
       - name: Setup node env 🏗
         uses: actions/setup-node@v2.1.5
         with:
-          node-version: ${{ matrix.node }}
+          node-version: '16'
           check-latest: true
 
       - name: Get yarn cache directory path 🛠
