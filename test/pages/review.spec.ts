@@ -73,12 +73,16 @@ describe('submit page', () => {
       localVue,
       methods,
       stubs: {
-        ProjectDisplay: Display
+        ProjectDisplay: {
+          name: 'ProjectDisplay',
+          template: '<div />'
+        }
       },
       mocks: {
         $router: {
           push: jest.fn()
-        }
+        },
+        localePath: (i: string) => i
       }
     });
 

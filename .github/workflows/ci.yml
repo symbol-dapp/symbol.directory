@@ -11,14 +11,7 @@ on:
       - master
 
 jobs:
-  ci:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [14]
-
+  continuous-integration:
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@master
