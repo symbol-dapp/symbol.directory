@@ -60,7 +60,7 @@
               </p>
               <div>
                 <NuxtLink
-                  to="/"
+                  :to="localePath('/')"
                   class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500"
                 >
                   See project at home page
@@ -98,7 +98,7 @@ export default Vue.extend({
   },
   created () {
     if (Object.keys(this.$store.state.submit.basicInfo).length === 0) {
-      this.$router.push('/submit');
+      this.$router.push(this.localePath('/submit'));
     }
   },
   methods: {

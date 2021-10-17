@@ -69,7 +69,13 @@ export default {
     locales: [
       {
         code: 'en',
-        file: 'en-US.js'
+        name: 'English',
+        file: 'en.js'
+      },
+      {
+        code: 'ja',
+        name: '日本',
+        file: 'ja.js'
       }
     ],
     lazy: true,

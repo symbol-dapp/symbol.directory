@@ -7,7 +7,7 @@
         aria-label="Footer"
       >
         <div class="px-5 py-2">
-          <NuxtLink to="/metrics" class="text-base text-gray-500 hover:text-gray-900">
+          <NuxtLink :to="localePath('/metrics')" class="text-base text-gray-500 hover:text-gray-900">
             {{ $t('metrics') }}
           </NuxtLink>
         </div>
@@ -40,9 +40,25 @@
       </a>
       -->
       </div>
+      <div class="mt-8 flex justify-center text-base text-gray-500 hover:text-gray-900">
+        <nuxt-link
+          v-for="locale in availableLocales"
+          :key="locale.code"
+          :to="switchLocalePath(locale.code)">{{ locale.name }}</nuxt-link>
+      </div>
       <p class="mt-8 text-center text-base text-gray-400">
         &copy; 2021 Symbol.Directory. All rights reserved.
       </p>
     </div>
   </footer>
 </template>
+
+<script>
+export default {
+  computed: {
+    availableLocales () {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
+    }
+  }
+};
+</script>

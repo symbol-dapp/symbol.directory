@@ -74,7 +74,7 @@ export default Vue.extend({
       event.preventDefault();
       (this as any).$ga.event('SubmitProject', 'ContinueButton', 'enabled', this.enabled);
       this.$store.commit('submit/storeProject', this.$data);
-      this.$router.push('/submit/review');
+      this.$router.push(this.localePath('/submit/review'));
     }
   }
 });

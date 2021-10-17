@@ -171,7 +171,7 @@ export default Vue.extend({
   },
   methods: {
     seeProject (name: string) {
-      this.$router.push(`/project/${name}`);
+      this.$router.push(this.localePath(`/project/${name}`));
     },
     filterByType (type: string) {
       this.selectedType = this.selectedType === type ? '' : type;

@@ -138,7 +138,7 @@ export default Vue.extend({
       this.$store.dispatch('projects/updateSocialMedia', transaction, { root: true });
     },
     onDeletion (transaction: Transaction) {
-      this.$router.push('/');
+      this.$router.push(this.localePath('/'));
       this.$store.dispatch('projects/removeProject', transaction, { root: true });
     },
     socialMediaChange (data: any) {
