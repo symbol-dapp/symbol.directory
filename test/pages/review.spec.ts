@@ -16,7 +16,6 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 import Vuex, { Store } from 'vuex';
 import { enableFetchMocks } from 'jest-fetch-mock';
-import Display from '@/components/Project/Display.vue';
 import { ProjectState } from '~/models/project/Project';
 import Review from '~/pages/submit/review.vue';
 
