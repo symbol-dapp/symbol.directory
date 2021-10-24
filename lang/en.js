@@ -17,7 +17,11 @@ export default {
     selectCategory: 'Select Category',
     websitePlaceholder: 'A URL to visit your product\'s website',
     detailDescription: 'Detail Description',
-    detailDescriptionPlaceholder: 'A detailed summary will better explain your products to the audiences. Our users will see this in your dedicated product page'
+    detailDescriptionPlaceholder: 'A detailed summary will better explain your products to the audiences. Our users will see this in your dedicated product page',
+    mosaicInfo: 'Mosaic Information',
+    hasMosaic: 'Does this project use a mosaic?',
+    mosaicId: 'MosaicID',
+    mosaicIdPlaceholder: 'Mosaic ID like 2CF403E85507F39E'
   },
   types: {
     application: 'Application',
@@ -46,5 +50,11 @@ export default {
     utilities: 'Utilities',
     others: 'Others',
     highRisk: 'High Risk'
+  },
+  announcer: {
+    scan: 'Scan the QR Code in your Symbol Wallet',
+    tutorial: 'Announce Transaction Tutorial',
+    waiting: 'Waiting the Transaction to be confirmed',
+    confirmed: 'Confirmed!'
   }
 };
