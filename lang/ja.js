@@ -1,7 +1,7 @@
 export default {
   search: '探す',
   submit: '申請',
-  name: '名前',
+  name: '名称',
   type: 'タイプ',
   category: 'カテゴリー',
   description: '説明',
