@@ -24,6 +24,7 @@ export default {
     company: 'Компания',
     dapp: 'Децентрализованное приложение Dapp',
     defi: 'Децентрализованные финансы DeFi',
+    framework: 'Framework',
     nft: 'NFT',
     node: 'Нода',
     protocol: 'Протокол',

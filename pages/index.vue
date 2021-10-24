@@ -7,7 +7,7 @@
           :key="type"
           :class="[selectedType === type ? 'bg-indigo-600 hover:bg-indigo-700 text-white' : 'bg-white hover:bg-gray-50', 'mx-2 mt-1 inline-flex items-center justify-center px-2 py-1 md:px-4 md:py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500']"
           @click="filterByType(type)">
-          {{ type }}
+          {{ $t(`types.${type.toLowerCase()}`) }}
         </button>
       </div>
       <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -115,10 +115,10 @@
                     {{ project.state.name }}
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {{ project.state.type }}
+                    {{ $t(`types.${project.state.type.toLowerCase()}`) }}
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {{ project.state.category }}
+                    {{ $t(`categories.${project.state.category.toLowerCase()}`) }}
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     {{ project.state.shortDescription }}

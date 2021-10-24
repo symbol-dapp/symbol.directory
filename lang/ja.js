@@ -24,6 +24,7 @@ export default {
     company: '企業',
     dapp: 'Dapp',
     defi: 'DeFi',
+    framework: 'Framework',
     nft: 'NFT',
     node: 'ノード',
     protocol: 'プロトコル',
