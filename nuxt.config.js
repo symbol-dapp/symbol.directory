@@ -76,6 +76,11 @@ export default {
         code: 'ja',
         name: '日本',
         file: 'ja.js'
+      },
+      {
+        code: 'ru',
+        name: 'Pусский',
+        file: 'ru.js'
       }
     ],
     lazy: true,
