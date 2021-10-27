@@ -8,6 +8,8 @@
       </div>
       <div class="mt-12">
         <form
+          action="/"
+          method="POST"
           name="contactme"
           class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
           data-netlify="true"
