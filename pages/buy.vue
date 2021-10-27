@@ -8,12 +8,12 @@
       </div>
       <div class="mt-12">
         <form
-          action="/"
-          method="POST"
           name="contactme"
+          method="POST"
           class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
+          @submit.prevent="onSubmit"
         >
           <input type="hidden" name="form-name" value="contactme" />
           <p class="hidden">
