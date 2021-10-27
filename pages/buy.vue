@@ -12,6 +12,7 @@
           method="POST"
           class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
           @submit.prevent="onSubmit"
+          netlify
         >
           <p class="hidden">
             <label>Don’t fill this out if you’re human: <input
