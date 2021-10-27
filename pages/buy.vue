@@ -9,10 +9,9 @@
       <div class="mt-12">
         <form
           name="contactme"
-          method="POST"
           class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
           data-netlify="true"
-          @submit.prevent="onSubmit"
+          netilfy
         >
           <input type="hidden" name="form-name" value="contactme" />
           <p class="hidden">
