@@ -14,6 +14,7 @@
           data-netlify="true"
           @submit.prevent="onSubmit"
         >
+          <input type="hidden" name="form-name" value="contactme" />
           <p class="hidden">
             <label>Don’t fill this out if you’re human: <input
               name="bot-field"
