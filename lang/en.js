@@ -9,6 +9,7 @@ export default {
   notRated: 'Not rated yet',
   website: 'Website',
   metrics: 'Metrics',
+  sale: 'Buy Symbol Directory',
   submitForm: {
     projectInfo: 'Project Information',
     shortDescription: 'Short Description',

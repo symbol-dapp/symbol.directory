@@ -25,9 +25,11 @@
                 </li>
               </ul>
             </div>
-            <p class="sr-only">{{ review.rating }} out of 5 stars</p>
+            <p class="sr-only">
+              {{ review.rating }} out of 5 stars
+            </p>
 
-            <div class="mt-4 prose prose-sm max-w-none text-gray-500" >
+            <div class="mt-4 prose prose-sm max-w-none text-gray-500">
               {{ review.state.content }}
             </div>
           </div>
@@ -50,9 +52,11 @@
               Comment
             </label>
             <div class="mt-1">
-              <textarea v-model="content" id="about" name="about" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-md" />
+              <textarea id="about" v-model="content" name="about" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-md" />
             </div>
-            <p class="mt-2 text-sm text-gray-500">Write a few sentences about the project.</p>
+            <p class="mt-2 text-sm text-gray-500">
+              Write a few sentences about the project.
+            </p>
           </div>
         </div>
         <div class="pt-5">

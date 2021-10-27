@@ -45,7 +45,10 @@
           v-for="locale in availableLocales"
           :key="locale.code"
           class="mr-2"
-          :to="switchLocalePath(locale.code)">{{ locale.name }}</nuxt-link>
+          :to="switchLocalePath(locale.code)"
+        >
+          {{ locale.name }}
+        </nuxt-link>
       </div>
       <p class="mt-8 text-center text-base text-gray-400">
         &copy; 2021 Symbol.Directory. All rights reserved.

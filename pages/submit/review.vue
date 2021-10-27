@@ -71,7 +71,7 @@
         </div>
       </div>
     </transition>
-    <div ref="announcer"></div>
+    <div ref="announcer" />
   </div>
 </template>
 <script lang="ts">

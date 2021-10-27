@@ -46,7 +46,7 @@
                 <label
                   for="mosaicId"
                   class="block text-sm font-medium text-gray-700"
-                >{{ $t('submitForm.mosaciD')}}</label>
+                >{{ $t('submitForm.mosaciD') }}</label>
                 <input
                   id="mosaicId"
                   v-model="mosaicId"
