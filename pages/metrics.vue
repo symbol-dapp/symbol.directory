@@ -68,7 +68,7 @@
                 <tr v-for="user in userMetrics" :key="user.address">
                   <td class="px-6 py-4 font-mono whitespace-nowrap text-sm font-medium text-gray-900">
                     <a
-                      :href="`http://explorer.symbolblockchain.io/accounts/${user.address}`"
+                      :href="`https://symbol-explorer.com/accounts/${user.address}`"
                       target="_blank"
                       class="hover:text-indigo-500"
                     >{{ user.address }}</a>

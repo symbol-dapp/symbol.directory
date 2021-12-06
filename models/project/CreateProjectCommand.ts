@@ -23,7 +23,8 @@ export class CreateProjectCommand extends PlainCommand<ProjectState> {
     public static VERSION = 1;
 
     constructor (projectState: ProjectState, signer?: PublicAccount) {
-      super(projectState.name, ProjectJournalResolver(), CreateProjectCommand.TYPE, CreateProjectCommand.VERSION, projectState, signer);
+      const name = projectState.name.replaceAll('/', '-');
+      super(name, ProjectJournalResolver(), CreateProjectCommand.TYPE, CreateProjectCommand.VERSION, projectState, signer);
     }
 
     public static of (projectState: ProjectState): CreateProjectCommand {

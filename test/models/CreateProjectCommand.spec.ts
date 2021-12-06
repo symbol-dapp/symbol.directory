@@ -44,4 +44,32 @@ describe('CreateProjectCommand', () => {
     expect(command.type).toBe('CreateProject');
     expect(command.data).toBe(projectState);
   });
+
+  test('Name contains a slash', () => {
+    const projectState: ProjectState = {
+      name: 'Symbol/Dapp',
+      category: 'Framework',
+      type: 'Dapp',
+      shortDescription: 'Symbol Dapp Framework',
+      longDescription: 'Opinionated Symbol Dapp Framework',
+      website: 'https://symboldapp.com',
+      socialMedia: {
+        twitter: undefined,
+        github: undefined,
+        facebook: undefined,
+        reddit: undefined,
+        telegram: undefined
+      },
+      rating: undefined,
+      reviews: []
+    };
+
+    const command = new CreateProjectCommand(projectState);
+
+    expect(command.id).toBe('Symbol-Dapp');
+    expect(command.journal.pretty()).toBe('TADNEW-7KKX42-QGWPM3-LSZJDD-5USCHT-57BPMJ-T4A');
+    expect(command.version).toBe(1);
+    expect(command.type).toBe('CreateProject');
+    expect(command.data).toBe(projectState);
+  });
 });

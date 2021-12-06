@@ -12,7 +12,7 @@
           <div :class="[reviewIdx === 0 ? '' : 'border-t border-gray-200', 'flex-1 py-10']">
             <h3 class="font-medium text-gray-900">
               <a
-                :href="`http://explorer.symbolblockchain.io/accounts/${review.author.address.pretty()}`"
+                :href="`https://symbol-explorer.com/accounts/${review.author.address.pretty()}`"
                 target="_blank"
                 class="hover:text-indigo-500"
               >{{ review.author.address.pretty() }}</a>
