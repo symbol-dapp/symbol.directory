@@ -122,7 +122,7 @@
                     {{ $t(`categories.${project.state.category.toLowerCase()}`) }}
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {{ project.state.shortDescription }}
+                    {{ project.state.shortDescription.substring(0, 50) }}{{ project.state.shortDescription.length > 50 ? '...' : '' }}
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     <div v-if="project.state.rating !== undefined" class="flex items-center mr-4">
