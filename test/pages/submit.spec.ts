@@ -57,7 +57,10 @@ describe('submit page', () => {
           name: 'SubmitBasicInfo',
           template: '<div />'
         },
-        SubmitMosaicInfo,
+        SubmitMosaicInfo: {
+          name: 'SubmitMosaicInfo',
+          template: '<div />'
+        },
         SubmitSocialMedia
       },
       mocks: {

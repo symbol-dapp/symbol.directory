@@ -16,10 +16,13 @@ import { render, fireEvent } from '@testing-library/vue';
 import SubmitMosaicInfo from '~/components/SubmitMosaicInfo.vue';
 
 describe('SubmitMosaicInfo', () => {
+  const $t = () => {};
   test('emits on data change', async () => {
-    const { getByText, getByTestId, emitted } = render(SubmitMosaicInfo);
-
-    getByText('Mosaic Information');
+    const { getByTestId, emitted } = render(SubmitMosaicInfo, {
+      mocks: {
+        $t
+      }
+    });
 
     const mosaicToggle = getByTestId('mosaic');
     await fireEvent.click(mosaicToggle);
