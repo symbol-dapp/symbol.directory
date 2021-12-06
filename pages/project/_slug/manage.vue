@@ -69,7 +69,7 @@ export default Vue.extend({
   },
   computed: {
     project () {
-      return this.$store.state.projects.projects.find((project: Project) => project.state.name === this.slug);
+      return this.$store.state.projects.projects.find((project: Project) => project.id === this.slug);
     }
   },
   created () {

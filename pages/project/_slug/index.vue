@@ -1,6 +1,6 @@
 <template>
   <div class="py-4">
-    <ProjectDisplay :project-state="project.state" :show-control-buttons="true" />
+    <ProjectDisplay :id="project.id" :project-state="project.state" :show-control-buttons="true" />
     <ProjectReviews :reviews="project.state.reviews" :project-id="project.state.name" />
   </div>
 </template>
