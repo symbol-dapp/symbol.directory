@@ -17,6 +17,8 @@ import Project, { ProjectState, SocialMedia } from '../../models/project/Project
 import { ownerAddress } from '../objectmothers/AccountObjectMother';
 
 describe('Project', () => {
+  const id = 'Symbol Dapp';
+
   it('a project has a basic info', () => {
     const projectState: ProjectState = {
       name: 'Symbol Dapp',
@@ -36,7 +38,7 @@ describe('Project', () => {
       reviews: []
     };
 
-    const project = Project.create(projectState, ownerAddress.publicAccount);
+    const project = Project.create(id, projectState, ownerAddress.publicAccount);
 
     expect(project).toBeDefined();
     expect(project.owner).toStrictEqual(ownerAddress.publicAccount);
@@ -60,7 +62,7 @@ describe('Project', () => {
       rating: undefined,
       reviews: []
     };
-    const project = Project.create(projectState, ownerAddress.publicAccount);
+    const project = Project.create(id, projectState, ownerAddress.publicAccount);
     const socialMedia: SocialMedia = {
       twitter: 'https://twiter.com/symboldapp',
       github: undefined,

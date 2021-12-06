@@ -32,6 +32,6 @@ export class CreateProjectCommand extends PlainCommand<ProjectState> {
     }
 
     public create () {
-      return Project.create(this.data, this.signer!);
+      return Project.create(this.id, this.data, this.signer!);
     }
 }

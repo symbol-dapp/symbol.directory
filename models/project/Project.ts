@@ -55,10 +55,10 @@ const PROJECT_STATE_DEFAULTS = () => ({
 });
 
 export default class Project {
-  constructor (public readonly state: ProjectState, public readonly owner: PublicAccount) {}
+  constructor (public readonly id: string, public readonly state: ProjectState, public readonly owner: PublicAccount) {}
 
-  public static create (projectState: ProjectState, signer: PublicAccount): Project {
-    return new Project(Object.assign({}, PROJECT_STATE_DEFAULTS(), projectState), signer);
+  public static create (id: string, projectState: ProjectState, signer: PublicAccount): Project {
+    return new Project(id, Object.assign({}, PROJECT_STATE_DEFAULTS(), projectState), signer);
   }
 
   public addReview (review: Review) {

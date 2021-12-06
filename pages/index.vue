@@ -101,7 +101,7 @@
                   v-for="project in projects"
                   :key="project.state.name"
                   class="clickable"
-                  @click="seeProject(project.state.name)"
+                  @click="seeProject(project.id)"
                 >
                   <td
                     class="
@@ -171,8 +171,8 @@ export default Vue.extend({
     });
   },
   methods: {
-    seeProject (name: string) {
-      this.$router.push(this.localePath(`/project/${name}`));
+    seeProject (id: string) {
+      this.$router.push(this.localePath(`/project/${id}`));
     },
     filterByType (type: string) {
       this.selectedType = this.selectedType === type ? '' : type;
