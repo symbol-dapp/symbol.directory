@@ -76,12 +76,6 @@
           class="hidden lg:flex lg:items-center lg:justify-end xl:col-span-3"
         >
           <NuxtLink
-            :to="localePath('/buy')"
-            class="inline-flex items-center justify-center px-4 py-2 mr-4 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500"
-          >
-            {{ $t('sale') }}
-          </NuxtLink>
-          <NuxtLink
             :to="localePath('/submit')"
             class="inline-flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500"
           >
